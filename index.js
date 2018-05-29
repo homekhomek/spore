@@ -7,12 +7,9 @@ var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
-var carriers = ["@mms.att.net", "@vtext.com", "@messaging.sprintpcs.com", "@tmomail.net"];
 var dbready = false;
 
 var LoginDB = null;
-var EventDB = null;
-var PostDB = null;
 
 var registerOpen = true;
 
@@ -22,28 +19,16 @@ server.listen(port, function() {
 // Routing
 app.use(express.static(__dirname + '/public'));
 
-const nodemailer = require('nodemailer');
-
 var MongoClient = require('mongodb').MongoClient;
 
-let transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: 'paytonbrennanstuco@gmail.com',
-    pass: 'Nhs91159115'
-  }
-});
-
 // Connection URL 
-var url = 'mongodb://localhost:27017/stuco';
+var url = 'mongodb://localhost:27017/spore';
 // Use connect method to connect to the Server 
 
 MongoClient.connect(url, function(err, db) {
   if (err == null) {
     console.log("Connected correctly to server");
     LoginDB = db.collection('users');
-    EventDB = db.collection('events');
-    PostDB = db.collection('posts');
     dbready = true;
 
   }
