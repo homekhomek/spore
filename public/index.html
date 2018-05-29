@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="apple-touch-icon" href="http://funatuns.com/funatuns/apple-touch-icon.png">
-  <meta charset="UTF-8">
-  <title>Spore</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
-  
-  
-</head>
-<body>
-  
-  <div id = "noudont" >
-    No you don't
-  </div>
-
-
-
-
-  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-  <scirpt src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.js"></script>
-  <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-  <script src="main.js"></script>
-</body>
+  <head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="http://funatuns.com/funatuns/apple-touch-icon.png">
+    <meta charset="UTF-8">
+    <title>Spore</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
+  </head>
+  <body onload="startAnim();" id="loginbod">
+    <div id="entroverlay">
+      <img id="entroverlayimg" src="images/whiteicon.png" />
+      <div id="entrload"><div id="loadfill"></div></div>
+    </div>
+    <h1 id="logintitl">Spore</h1>
+    <div id="loginform">
+      <input type="text" placeholder="Username" id="logusername">
+      <input type="text" placeholder="Password" id="logpassword">
+      <button id="loginbtn">Login</button>
+      <a id="frgtpsswrd" href="frgtpsswrd.html">Forgot Password</a>
+    </div>
+    <div id="signuponlog">
+      <p>Need an account? <a href="register.hmtl">Sign Up</a></p>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <scirpt src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animhandler.js"></script>
+  </body>
 </html>
