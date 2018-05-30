@@ -1,17 +1,41 @@
-var socket = io.connect(); // take your ip out for saftey when pushing
+var socket = io.connect("141.126.155.58:7777"); // take your ip out for saftey when pushing
 
-//socket.emit("Register",{username: "", password: "", email: ""}); // once emited will return with a packets also named Register (see below)
+function sendReg(user, email, pass, pass2){
+  if(pass == pass2){
+    //socket.emit("Register",{username: user, password: pass, email: email}); // once emited will return with a packets also named Register
+  }
+  else {
+    alert("Passwords do not match!");
+  }
+}
 
 //window.navigator.standalone 
 
 socket.on("Register",function (data) {
-    /*data will be one of few things
-        {
-            status: "success/fail"
-            type: "" //if fail, will be either "usernameNotUnique", "hasWhiteSpace", or "tooLong"
-            key: "" //if success, will return key so you can log the user in
-        }
-    */
+  /*data will be one of few things
+    {
+      status: "success/fail"
+      type: "" //if fail, will be either "usernameNotUnique", "hasWhiteSpace", or "tooLong"
+      key: "" //if success, will return key so you can log the user in
+    }
+  */
+  if(status == "success"){
+    localStorage.setItem('key', key);
+  }
+  else {
+    if(type == "usernameNotUnique"){
+      alert("Username already taken!");
+    }
+    else if(type == "hasWhiteSpace"){
+      alert("Whitespaces in the username are not permitted.");
+    }
+    else if(type == "tooLong"){
+      alert("The username is too long!");
+    }
+    else {
+      alert("Unkown error registering, please try again later.");
+    }
+  }
 });
 
 //Prevent links from opening in safari
@@ -19,9 +43,9 @@ socket.on("Register",function (data) {
 var a=document.getElementsByTagName("a");
 for(var i=0;i<a.length;i++)
 {
-    a[i].onclick=function()
-    {
-        window.location=this.getAttribute("href");
-        return false
-    }
+  a[i].onclick=function()
+  {
+    window.location=this.getAttribute("href");
+    return false
+  }
 }
