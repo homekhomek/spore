@@ -1,6 +1,6 @@
 var socket = io.connect(); // take your ip out for saftey when pushing
 
-socket.emit("Register",{username: "", password: "", email: ""}); // once emited will return with a packets also named Register (see below)
+//socket.emit("Register",{username: "", password: "", email: ""}); // once emited will return with a packets also named Register (see below)
 
 //window.navigator.standalone 
 
@@ -13,3 +13,15 @@ socket.on("Register",function (data) {
         }
     */
 });
+
+//Prevent links from opening in safari
+
+var a=document.getElementsByTagName("a");
+for(var i=0;i<a.length;i++)
+{
+    a[i].onclick=function()
+    {
+        window.location=this.getAttribute("href");
+        return false
+    }
+}

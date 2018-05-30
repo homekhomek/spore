@@ -15,5 +15,7 @@ function startAnim() {
   }, 1900);
   setTimeout(function(){
     document.getElementById("entroverlay").style.display = "none";
+    //Add localstorage test here
+    window.location = "login.html";
   }, 2400);
 }

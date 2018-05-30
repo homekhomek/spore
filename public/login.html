@@ -11,10 +11,16 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
   </head>
-  <body onload="startAnim();" id="loginbod">
-    <div id="entroverlay">
-      <img id="entroverlayimg" src="images/brownicon.png" />
-      <div id="entrload"><div id="loadfill"></div></div>
+  <body id="logBod" onload="document.getElementById('logBod').style.opacity = '1'">
+    <h1 id="logintitl">Spore</h1>
+    <div id="loginform">
+      <input type="text" placeholder="Username" id="logusername">
+      <input type="password" placeholder="Password" id="logpassword">
+      <button id="loginbtn">Login</button>
+      <a id="frgtpsswrd" href="frgtpsswrd.html">Forgot Password</a>
+    </div>
+    <div id="signuponlog">
+      <p>Need an account? <a href="register.html">Sign Up</a></p>
     </div>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <scirpt src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
