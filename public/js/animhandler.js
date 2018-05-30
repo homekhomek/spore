@@ -15,5 +15,5 @@ function startAnim() {
   }, 1900);
   setTimeout(function(){
     document.getElementById("entroverlay").style.display = "none";
-  }, 8980);
+  }, 2400);
 }
