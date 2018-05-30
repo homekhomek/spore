@@ -8,6 +8,16 @@ function sendReg(user, email, pass, pass2){
     alert("Passwords do not match!");
   }
 }
+function start () {
+    if( window.navigator.standalone ) {
+        startLoadAnim();
+    }
+    else {
+        startAddAppAnim();
+    }
+}
+
+//socket.emit("Register",{username: "", password: "", email: ""}); // once emited will return with a packets also named Register (see below)
 
 //window.navigator.standalone 
 
