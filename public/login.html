@@ -16,7 +16,7 @@
     <div id="loginform">
       <input type="text" placeholder="Username" id="logusername">
       <input type="password" placeholder="Password" id="logpassword">
-      <button id="loginbtn">Login</button>
+      <button id="loginbtn" onclick="sendLogin(document.getElementById('logusername').value, document.getElementById('logpassword').value)">Login</button>
       <a id="frgtpsswrd" href="frgtpsswrd.html">Forgot Password</a>
     </div>
     <div id="signuponlog">

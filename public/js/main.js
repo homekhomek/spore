@@ -17,7 +17,9 @@ function start () {
     }
 }
 
-//socket.emit("Login",{username: user, password: pass}); // once emited will return with a packets also named Login
+function sendLogin(user, pass) {
+  socket.emit("Login",{username: user, password: pass}); // once emited will return with a packets also named Login
+}
 
 socket.on("Register",function (data) {
   /*data will be one of few things
@@ -29,7 +31,7 @@ socket.on("Register",function (data) {
   */
   if(data.status == "success"){
     localStorage.setItem('key', data.key);
-    window.location = ""
+    window.location = "land.html"
   }
   else {
     if(data.type == "usernameNotUnique"){
@@ -48,13 +50,28 @@ socket.on("Register",function (data) {
 });
 
 socket.on("Login",function (data) {
-    /*data will be one of few things
-      {
-        status: "success/fail"
-        type: "" //if fail, will be either "wrongPassword", "accountDoesntExist"
-        key: "" //if success, will return key so you can log the user in
-      }
-    */
+  /*data will be one of few things
+    {
+      status: "success/fail"
+      type: "" //if fail, will be either "wrongPassword", "accountDoesntExist"
+      key: "" //if success, will return key so you can log the user in
+    }
+  */
+  if(data.status == "success"){
+    localStorage.setItem("key", data.key);
+    window.location = "land.html";
+  }
+  else {
+    if(data.type == "wrongPassword"){
+
+    }
+    if(data.type == "accountDoesntExist"){
+      alert("An account with this username does not seem to exist. Or your account has been decomposed by a rather large mushroom. Either way, whatever you're doing isn't working.");
+    }
+    else {
+      alert("Unkown error logging in, please try again later.");
+    }
+  }
 });
 
 //Prevent links from opening in safari
