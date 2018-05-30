@@ -59,14 +59,17 @@ a {
   z-index: 999;
   opacity: 1;
   transition: all .5s ease;
+
   width: 100%;
   display: block;
   height: 100vh;
-  background: -webkit-gradient(linear, left top, left bottom, from(#bea292), to(#834b2d)) fixed;
+  background: white;
   position: absolute;
 }
 
 #entroverlayimg {
+  transition: all 1s ease;
+  opacity: 0;
   width: 600px;
   position: relative;
   display: block;
@@ -78,16 +81,20 @@ a {
 #entrload {
   width: 70%;
   height: 40px;
-  border: 2px solid white;
   margin-left: 15%;
   margin-top: 40px;
+  border-bottom-color: #834B2D;
+  border-bottom-style: solid;
+  transition: all 1s ease;
+  border-bottom-width: 5px;
+  opacity: 0;
 }
 
 #loadfill{
   display: block;
   position: relative;
-  background-color: white;
-  transition: all .05s ease;
+  background-color: #834B2D;
+  transition: all .1s ease;
   width: 0;
   height: 40px;
 }
