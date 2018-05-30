@@ -1,5 +1,14 @@
 var socket = io.connect(); // take your ip out for saftey when pushing
 
+function start () {
+    if( window.navigator.standalone ) {
+        startLoadAnim();
+    }
+    else {
+        startAddAppAnim();
+    }
+}
+
 //socket.emit("Register",{username: "", password: "", email: ""}); // once emited will return with a packets also named Register (see below)
 
 //window.navigator.standalone 

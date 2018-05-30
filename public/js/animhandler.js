@@ -1,4 +1,4 @@
-function startAnim() {
+function startLoadAnim() {
   
   setTimeout(function(){
     document.getElementById("entroverlayimg").style.opacity = "1";
@@ -16,6 +16,48 @@ function startAnim() {
   setTimeout(function(){
     document.getElementById("entroverlay").style.display = "none";
     //Add localstorage test here
+
+    //Check if user has added to home screen
+    
     window.location = "login.html";
   }, 2400);
+}
+
+function startAddAppAnim() {
+
+  setTimeout(function(){
+    document.getElementById("step1").style.opacity = "1";
+  }, 1000);
+  setTimeout(function(){
+    document.getElementById("step1").style.opacity = "0";
+    
+  }, 6000);
+  setTimeout(function(){
+    document.getElementById("step1").style.display = "none";
+    document.getElementById("step2").style.opacity = "1";
+
+    
+  }, 7000);
+
+  setTimeout(function(){
+    document.getElementById("step2").style.opacity = "0";
+  }, 12000);
+  setTimeout(function(){
+    document.getElementById("step2").style.display = "none";
+    document.getElementById("step3").style.opacity = "1";
+
+    
+  }, 13000);
+
+  setTimeout(function(){
+    document.getElementById("step3").style.opacity = "0";
+  }, 18000);
+  setTimeout(function(){
+    document.getElementById("step3").style.display = "none";
+    document.getElementById("step4").style.opacity = "1";
+
+    
+  }, 19000);
+
+
 }

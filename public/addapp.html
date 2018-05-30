@@ -8,34 +8,29 @@
     <meta charset="UTF-8">
     <title>Spore</title>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="addappstyle.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
   </head>
-  <body onload="start();" id="loginbod">
-    <div id="entroverlay">
-      <img id="entroverlayimg" src="images/brownicon.png" />
-      <div id="entrload"><div id="loadfill"></div></div>
-    </div>
-
+  <body id="addbod" onload="document.getElementById('addbod').style.opacity = '1'">
     <div id="step1" class="stepoverlay">
-        <div id="step1text">Click the share button at the bottom</div>
-        <img id="step1img" src="images/step1.png" />
+      <input type="text" placeholder="Username" id="logusername">
+      <input type="password" placeholder="Password" id="logpassword">
+      <button id="loginbtn">Login</button>
+      <a id="frgtpsswrd" href="frgtpsswrd.html">Forgot Password</a>
     </div>
-
     <div id="step2" class="stepoverlay">
-        <div id="step2text">Click the "Add to Home Screen" option</div>
-        <img id="step2img" src="images/step2.png" />
+      <input type="text" placeholder="Username" id="logusername">
+      <input type="password" placeholder="Password" id="logpassword">
+      <button id="loginbtn">Login</button>
+      <a id="frgtpsswrd" href="frgtpsswrd.html">Forgot Password</a>
     </div>
-    
     <div id="step3" class="stepoverlay">
-        <div id="step3text">Click add in the upper right corner</div>
-        <img id="step3img" src="images/step3.png" />
+      <input type="text" placeholder="Username" id="logusername">
+      <input type="password" placeholder="Password" id="logpassword">
+      <button id="loginbtn">Login</button>
+      <a id="frgtpsswrd" href="frgtpsswrd.html">Forgot Password</a>
     </div>
 
-    <div id="step4" class="stepoverlay">
-        <div id="step1text">Tap the home button and launch the app :)</div>
-        <img id="step1img" src="images/step1.png" />  
-    </div>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <scirpt src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
