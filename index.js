@@ -41,7 +41,7 @@ io.on('connection', function(socket) {
 
   socket.on('Register', function(data) {
     console.log("Register attempt");
-    // Data format:  data: { username: "username", password: "password"}
+    // Data format:  data: { username: "username", password: "password", email: "email"}
     LoginDB.findOne({username: data.username}).then(function (testProfile) { // get profile with username
       if(testProfile != null) { // does such profile exist?
         socket.emit("Register", {status: "fail", type:"usernameNotUnique", key:""}); // if yes emit a fail with non unique username
@@ -56,7 +56,7 @@ io.on('connection', function(socket) {
           hasPoint: true,
           lastPointTime: "",
           key: keyGen(),
-          email: "",
+          email: data.email,
         };
         LoginDB.insertOne(profile).then(function(item) { // push account
           socket.emit("Register", {status: "success", type:"", key:item.key}); // emit success
