@@ -78,23 +78,31 @@ io.on('connection', function(socket) {
 
 
   socket.on('Login', function(data) {
-    LoginDB.findOne({username:data.username}).then(function(item) {
-      if(item == null) {
-        socket.emit("DoesntExist", "username");
-        console.log("[" + data.username + "] Username Incorrect");
+    LoginDB.findOne({username:data.username}).then(function(profile) {
+      if(profile == null) {
+        socket.emit("Login", {
+          status: "fail",
+          type: "accountDoesntExist",
+          key: ""
+        });
+        console.log("Login Fail: accountDoesntExist");
       }
       else {
-        console.log("Checking " + data.password + " to " + item.password);
-        if (data.password == item.password) {
-          socket.emit("LoginSuccess", {
-            key: item.key,
-            username: item.username,
-            admin: item.admin
+        if (data.password == profile.password) {
+          socket.emit("Login", {
+            status: "success",
+            type: "",
+            key: item.key
           });
-          console.log("[" + data.username + "] Login Successful");
-        } else {
-          socket.emit("DoesntExist", "password");
-          console.log("[" + data.username + "] Password Incorrect");
+          console.log("Login Success");
+        } 
+        else {
+          socket.emit("Login", {
+            status: "fail",
+            type: "wrongPassword",
+            key: ""
+          });
+          console.log("Login Fail: wrongPassword");
         }
       }
     });
