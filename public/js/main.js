@@ -2,7 +2,7 @@ var socket = io.connect("141.126.155.58:7777"); // take your ip out for saftey w
 
 function sendReg(user, email, pass, pass2){
   if(pass == pass2){
-    //socket.emit("Register",{username: user, password: pass, email: email}); // once emited will return with a packets also named Register
+    socket.emit("Register",{username: user, password: pass, email: email}); // once emited will return with a packets also named Register
   }
   else {
     alert("Passwords do not match!");
@@ -29,6 +29,7 @@ socket.on("Register",function (data) {
   */
   if(data.status == "success"){
     localStorage.setItem('key', data.key);
+    alert("It worked lol");
   }
   else {
     if(data.type == "usernameNotUnique"){
