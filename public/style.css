@@ -80,7 +80,7 @@ a {
 
 #entrload {
   width: 70%;
-  height: 40px;
+  height: 25px;
   margin-left: 15%;
   margin-top: 40px;
   border-bottom-color: #834B2D;
@@ -96,7 +96,7 @@ a {
   background-color: #834B2D;
   transition: all .1s ease;
   width: 0;
-  height: 40px;
+  height: 25px;
 }
 
 #logintitl {
