@@ -1,5 +1,3 @@
-var socket = io.connect("http://141.126.155.58:7777");
+var socket = io.connect(); // take your ip out for saftey when pushing
 
-//Lol u piece of shit
 
-socket.emit('Joined',null);
