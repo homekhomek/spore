@@ -15,11 +15,12 @@ function startLoadAnim() {
   }, 1900);
   setTimeout(function(){
     document.getElementById("entroverlay").style.display = "none";
-    //Add localstorage test here
-
-    //Check if user has added to home screen
-    
-    window.location = "login.html";
+    if(localStorage.getItem("key") != null && localStorage.getItem("key") != undefined){
+      window.location = "land.html"
+    }
+    else {
+      window.location = "login.html";
+    }
   }, 2400);
 }
 

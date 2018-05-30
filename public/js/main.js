@@ -29,7 +29,7 @@ socket.on("Register",function (data) {
   */
   if(data.status == "success"){
     localStorage.setItem('key', data.key);
-    alert("It worked lol");
+    window.location = ""
   }
   else {
     if(data.type == "usernameNotUnique"){
