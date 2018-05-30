@@ -17,7 +17,7 @@ function start () {
     }
 }
 
-//window.navigator.standalone 
+//socket.emit("Login",{username: user, password: pass}); // once emited will return with a packets also named Login
 
 socket.on("Register",function (data) {
   /*data will be one of few things
@@ -45,6 +45,16 @@ socket.on("Register",function (data) {
       alert("Unkown error registering, please try again later.");
     }
   }
+});
+
+socket.on("Login",function (data) {
+    /*data will be one of few things
+      {
+        status: "success/fail"
+        type: "" //if fail, will be either "wrongPassword", "accountDoesntExist"
+        key: "" //if success, will return key so you can log the user in
+      }
+    */
 });
 
 //Prevent links from opening in safari
