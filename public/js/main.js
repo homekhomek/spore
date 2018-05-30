@@ -17,8 +17,6 @@ function start () {
     }
 }
 
-//socket.emit("Register",{username: "", password: "", email: ""}); // once emited will return with a packets also named Register (see below)
-
 //window.navigator.standalone 
 
 socket.on("Register",function (data) {
@@ -29,17 +27,17 @@ socket.on("Register",function (data) {
       key: "" //if success, will return key so you can log the user in
     }
   */
-  if(status == "success"){
-    localStorage.setItem('key', key);
+  if(data.status == "success"){
+    localStorage.setItem('key', data.key);
   }
   else {
-    if(type == "usernameNotUnique"){
+    if(data.type == "usernameNotUnique"){
       alert("Username already taken!");
     }
-    else if(type == "hasWhiteSpace"){
+    else if(data.type == "hasWhiteSpace"){
       alert("Whitespaces in the username are not permitted.");
     }
-    else if(type == "tooLong"){
+    else if(data.type == "tooLong"){
       alert("The username is too long!");
     }
     else {
