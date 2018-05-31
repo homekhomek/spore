@@ -34,7 +34,7 @@ socket.on("Register",function (data) {
   */
   if(data.status == "success"){
     localStorage.setItem("key", data.key);
-    window.location = "land.html";
+    window.location = "profile.html";
   }
   else {
     if(data.type == "usernameNotUnique"){
