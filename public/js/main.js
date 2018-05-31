@@ -66,9 +66,9 @@ socket.on("Login",function (data) {
   }
   else {
     if(data.type == "wrongPassword"){
-
+      alert("Incorrect Password!");
     }
-    if(data.type == "accountDoesntExist"){
+    else if(data.type == "accountDoesntExist"){
       alert("An account with this username does not seem to exist. Or your account has been decomposed by a rather large mushroom. Either way, whatever you're doing isn't working.");
     }
     else {

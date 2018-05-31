@@ -125,6 +125,7 @@ function toggleMenu(){
       },150);
       setTimeout(function(){
         document.getElementById("lowerright").style.setProperty("-webkit-transform", "scale(1.25) translate(200px, 0)");
+        document.getElementById("lowerleft").onclick = logout;
       },200);
     }, 100);
   }
