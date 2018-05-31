@@ -85,3 +85,10 @@ for(var i=0;i<a.length;i++)
     return false
   }
 }
+
+function logout(){
+  if(menuopen){
+    localStorage.removeItem("key");
+    window.location = "login.html";
+  }
+}

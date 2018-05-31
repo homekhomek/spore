@@ -1,3 +1,5 @@
+var menuopen = false;
+
 function startLoadAnim() {
   
   setTimeout(function(){
@@ -61,4 +63,73 @@ function startAddAppAnim() {
   }, 19000);
 
 
+}
+
+function toggleMenu(){
+  alert(localStorage.getItem('key'));
+  if(menuopen){
+    document.getElementById("lowerleft").style.setProperty("-webkit-transform", "scale(.95) translate(-100px, 0)");
+    setTimeout(function(){
+      document.getElementById("middleleft").style.setProperty("-webkit-transform", "scale(.95) translate(-75px, -75px)");
+    },50);
+    setTimeout(function(){
+      document.getElementById("uppermiddle").style.setProperty("-webkit-transform", "scale(.95) translate(0, -100px)");
+    },100);
+    setTimeout(function(){
+      document.getElementById("middleright").style.setProperty("-webkit-transform", "scale(.95) translate(75px, -75px)");
+    },150);
+    setTimeout(function(){
+      document.getElementById("lowerright").style.setProperty("-webkit-transform", "scale(.95) translate(100px, 0)");
+    },200);
+    // SECONDARY ANIMATION
+    setTimeout(function(){
+      document.getElementById("lowerleft").style.setProperty("-webkit-transform", "scale(1.25) translate(0, 0)");
+      document.getElementById("lowerleft").onclick = "";
+      setTimeout(function(){
+        document.getElementById("middleleft").style.setProperty("-webkit-transform", "scale(1.25) translate(0, 0)");
+      },50);
+      setTimeout(function(){
+        document.getElementById("uppermiddle").style.setProperty("-webkit-transform", "scale(1.25) translate(0, 0)");
+      },100);
+      setTimeout(function(){
+        document.getElementById("middleright").style.setProperty("-webkit-transform", "scale(1.25) translate(0, 0)");
+      },150);
+      setTimeout(function(){
+        document.getElementById("lowerright").style.setProperty("-webkit-transform", "scale(1.25) translate(0, 0)");
+      },200);
+    }, 100);
+  }
+  else{
+    document.getElementById("lowerleft").style.setProperty("-webkit-transform", "scale(.95) translate(-100px, 0)");
+    setTimeout(function(){
+      document.getElementById("middleleft").style.setProperty("-webkit-transform", "scale(.95) translate(-75px, -75px)");
+    },50);
+    setTimeout(function(){
+      document.getElementById("uppermiddle").style.setProperty("-webkit-transform", "scale(.95) translate(0, -100px)");
+    },100);
+    setTimeout(function(){
+      document.getElementById("middleright").style.setProperty("-webkit-transform", "scale(.95) translate(75px, -75px)");
+    },150);
+    setTimeout(function(){
+      document.getElementById("lowerright").style.setProperty("-webkit-transform", "scale(.95) translate(100px, 0)");
+    },200);
+    // SECONDARY ANIMATION
+    setTimeout(function(){
+      document.getElementById("lowerleft").style.setProperty("-webkit-transform", "scale(1.25) translate(-200px, 0)");
+      document.getElementById("lowerleft").onclick = "logout()";
+      setTimeout(function(){
+        document.getElementById("middleleft").style.setProperty("-webkit-transform", "scale(1.25) translate(-150px, -150px)");
+      },50);
+      setTimeout(function(){
+        document.getElementById("uppermiddle").style.setProperty("-webkit-transform", "scale(1.25) translate(0, -200px)");
+      },100);
+      setTimeout(function(){
+        document.getElementById("middleright").style.setProperty("-webkit-transform", "scale(1.25) translate(150px, -150px)");
+      },150);
+      setTimeout(function(){
+        document.getElementById("lowerright").style.setProperty("-webkit-transform", "scale(1.25) translate(200px, 0)");
+      },200);
+    }, 100);
+  }
+  menuopen = !menuopen;
 }
