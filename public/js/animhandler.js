@@ -66,7 +66,6 @@ function startAddAppAnim() {
 }
 
 function toggleMenu(){
-  alert(localStorage.getItem('key'));
   if(menuopen){
     document.getElementById("lowerleft").style.setProperty("-webkit-transform", "scale(.95) translate(-100px, 0)");
     setTimeout(function(){
@@ -84,7 +83,6 @@ function toggleMenu(){
     // SECONDARY ANIMATION
     setTimeout(function(){
       document.getElementById("lowerleft").style.setProperty("-webkit-transform", "scale(1.25) translate(0, 0)");
-      document.getElementById("lowerleft").onclick = "";
       setTimeout(function(){
         document.getElementById("middleleft").style.setProperty("-webkit-transform", "scale(1.25) translate(0, 0)");
       },50);
@@ -116,7 +114,6 @@ function toggleMenu(){
     // SECONDARY ANIMATION
     setTimeout(function(){
       document.getElementById("lowerleft").style.setProperty("-webkit-transform", "scale(1.25) translate(-200px, 0)");
-      document.getElementById("lowerleft").onclick = "logout()";
       setTimeout(function(){
         document.getElementById("middleleft").style.setProperty("-webkit-transform", "scale(1.25) translate(-150px, -150px)");
       },50);
