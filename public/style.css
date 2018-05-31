@@ -142,6 +142,31 @@ a {
   margin-left: calc(50% - 75px); 
 }
 
+#step4 {
+  opacity: 0;
+  transition: all 1s ease;
+  background-color: #7E5658;
+}
+
+#step4text {
+  background-color: #7E5658;
+  color: white;
+  font-size: 100px;
+  font-weight: 200;
+  width: 100%;
+  text-align: center;
+  padding-top: 250px;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+#step4img {
+  width: 666px;
+  position: relative;
+  display: block;
+  margin-top: 100px;
+  margin-left: calc(50% - 333px); 
+}
+
 
 #entroverlay {
   z-index: 999;
