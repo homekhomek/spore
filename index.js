@@ -108,6 +108,51 @@ io.on('connection', function(socket) {
     });
   });
 
+  socket.on('Profile', function(data) {
+    LoginDB.findOne({key:data.key}).then(function(profile) {
+      if(profile == null) {
+        socket.emit("Profile", {
+          status: "fail",
+          type: "invalidKey",
+          profile: {}
+        });
+        console.log("Profile Fail: invalidKey");
+      }
+      if(data.username == "" ) {
+        socket.emit("Profile", {
+          status: "success",
+          type: "",
+          profile: profile
+        });
+        console.log("Profile Success");
+      }
+      else {
+        LoginDB.findOne({username:data.username}).then(function(otherProfile) {
+          if(otherProfile == null) {
+            socket.emit("Profile", {
+              status: "fail",
+              type: "invalidUsername",
+              profile: {}
+            });
+            console.log("Profile Fail: invalidUsername");
+          }
+          else  {
+            otherProfile.key = "";
+            otherProfile.password = "";
+            socket.emit("Profile", {
+              status: "success",
+              type: "",
+              profile: otherProfile
+            });
+            console.log("Profile Success");
+          }
+        });
+      }
+
+
+    });
+  });
+
   socket.on('disconnect', function() {
 
   });
