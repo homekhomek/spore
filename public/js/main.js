@@ -1,5 +1,8 @@
 var socket = io.connect("141.126.155.58:7777"); // take your ip out for saftey when pushing
 
+var a=document.getElementsByTagName("a");
+linkFix();
+
 function sendReg(user, email, pass, pass2){
   if(pass == pass2){
     socket.emit("Register",{username: user, password: pass, email: email}); // once emited will return with a packets also named Register
@@ -30,8 +33,8 @@ socket.on("Register",function (data) {
     }
   */
   if(data.status == "success"){
-    localStorage.setItem('key', data.key);
-    window.location = "land.html"
+    localStorage.setItem("key", data.key);
+    window.location = "profile.html";
   }
   else {
     if(data.type == "usernameNotUnique"){
@@ -76,19 +79,32 @@ socket.on("Login",function (data) {
 
 //Prevent links from opening in safari
 
-var a=document.getElementsByTagName("a");
-for(var i=0;i<a.length;i++)
-{
-  a[i].onclick=function()
-  {
-    window.location=this.getAttribute("href");
-    return false
+function linkFix() {
+  for(var i=0;i<a.length;i++){
+    a[i].onclick=function(){
+      window.location=this.getAttribute("href");
+      return false;
+    }
   }
 }
 
 function logout(){
-  if(menuopen){
+  //if(menuopen){
+    alert("Lmao");
     localStorage.removeItem("key");
     window.location = "login.html";
-  }
+  //}
 }
+
+function grabProf(){
+  socket.emit("Profile", {
+    key: localStorage.getItem("key"), 
+    username: "asdf"
+  });
+}
+
+//username, admin, points, hasPoints, lastPointTime, email
+
+socket.on("Profile", function(inf) {
+  document.getElementById("userPlace").innerHTML = inf.profile.username;
+});

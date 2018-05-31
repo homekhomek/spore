@@ -11,14 +11,20 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
   </head>
-  <body id="logBod" onload="document.getElementById('logBod').style.opacity = '1';">
+  <body id="logBod" onload="document.getElementById('logBod').style.opacity = '1'; grabProf();">
     <header id="landhead">Spore</header>
+    <main>
+      <section id="prof">
+        <img src="images/dfuser.png" alt="Profile Picture">
+        <p id="userPlace"></p>
+      </section>
+    </main>
     <div class="blobs">  
       <div class="blob" id="lowerright"><i class="fas fa-home"></i></div>  
       <div class="blob" id="middleright"><i class="fas fa-user-alt"></i></div>  
       <div class="blob" id="uppermiddle"><i class="fas fa-chart-line"></i></div>  
       <div class="blob" id="middleleft"><i class="fas fa-search"></i></div>  
-      <div class="blob" id="lowerleft" onclick=""><i class="fas fa-sign-out-alt"></i></div>  
+      <div class="blob" id="lowerleft" onclick="logout()"><i class="fas fa-sign-out-alt"></i></div>  
       <div class="blob" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
     </div>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>

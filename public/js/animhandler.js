@@ -18,7 +18,7 @@ function startLoadAnim() {
   setTimeout(function(){
     document.getElementById("entroverlay").style.display = "none";
     if(localStorage.getItem("key") != null && localStorage.getItem("key") != undefined){
-      window.location = "land.html"
+      window.location = "profile.html"
     }
     else {
       window.location = "login.html";
@@ -83,7 +83,6 @@ function toggleMenu(){
     // SECONDARY ANIMATION
     setTimeout(function(){
       document.getElementById("lowerleft").style.setProperty("-webkit-transform", "scale(1.25) translate(0, 0)");
-      document.getElementById("lowerleft").onclick = "";
       setTimeout(function(){
         document.getElementById("middleleft").style.setProperty("-webkit-transform", "scale(1.25) translate(0, 0)");
       },50);
@@ -115,7 +114,6 @@ function toggleMenu(){
     // SECONDARY ANIMATION
     setTimeout(function(){
       document.getElementById("lowerleft").style.setProperty("-webkit-transform", "scale(1.25) translate(-200px, 0)");
-      
       setTimeout(function(){
         document.getElementById("middleleft").style.setProperty("-webkit-transform", "scale(1.25) translate(-150px, -150px)");
       },50);
