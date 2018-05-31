@@ -95,3 +95,16 @@ function logout(){
     window.location = "login.html";
   //}
 }
+
+function grabProf(){
+  socket.emit("Profile", {
+    key: localStorage.getItem("key"), 
+    username: "asdf"
+  });
+}
+
+//username, admin, points, hasPoints, lastPointTime, email
+
+socket.on("Profile", function(inf) {
+  document.getElementById("userPlace").innerHTML = inf.profile.username;
+});

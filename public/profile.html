@@ -11,8 +11,14 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
   </head>
-  <body id="logBod" onload="document.getElementById('logBod').style.opacity = '1';">
+  <body id="logBod" onload="document.getElementById('logBod').style.opacity = '1'; grabProf();">
     <header id="landhead">Spore</header>
+    <main>
+      <section id="prof">
+        <img src="images/dfuser.png" alt="Profile Picture">
+        <p id="userPlace"></p>
+      </section>
+    </main>
     <div class="blobs">  
       <div class="blob" id="lowerright"><i class="fas fa-home"></i></div>  
       <div class="blob" id="middleright"><i class="fas fa-user-alt"></i></div>  

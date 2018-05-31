@@ -375,10 +375,35 @@ input::-webkit-input-placeholder {
   letter-spacing: 3px;
   text-transform: uppercase;
   border-bottom: 1px solid #b7b7b7;
-  position: absolute;
+  position: fixed;
+  display: block;
+  background-color: white;
+  z-index: 998;
   top: 0;
   left: 0;
   color: #834B2D;
   text-align: center;
   padding: 35px 0;
+}
+
+#prof {
+  display: block;
+  width: 100%;
+  margin-top: 225px;
+}
+
+#prof img {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  width: 37%;
+  border-radius: 100%;
+}
+
+#prof p {
+  width: 100%;
+  text-align: center;
+  color: #834B2D;
+  font-size: 60px;
+  padding: 50px 0;
 }
