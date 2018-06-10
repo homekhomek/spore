@@ -53,6 +53,8 @@ io.on('connection', function(socket) {
           password: data.password,
           admin: 0,
           points: 0,
+          bio: "I like shrooms",
+          title: data.username,
           hasPoint: true,
           lastPointTime: "",
           key: keyGen(),
