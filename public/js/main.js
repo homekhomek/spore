@@ -62,7 +62,7 @@ socket.on("Login",function (data) {
   */
   if(data.status == "success"){
     localStorage.setItem("key", data.key);
-    window.location = "land.html";
+    window.location = "profile.html";
   }
   else {
     if(data.type == "wrongPassword"){
@@ -90,7 +90,6 @@ function linkFix() {
 
 function logout(){
   //if(menuopen){
-    alert("Lmao");
     localStorage.removeItem("key");
     window.location = "login.html";
   //}
@@ -99,7 +98,7 @@ function logout(){
 function grabProf(){
   socket.emit("Profile", {
     key: localStorage.getItem("key"), 
-    username: "asdf"
+    username: getParameterByName("username")
   });
 }
 
@@ -108,3 +107,15 @@ function grabProf(){
 socket.on("Profile", function(inf) {
   document.getElementById("userPlace").innerHTML = inf.profile.username;
 });
+
+function getParameterByName(name, url) { 
+  if (!url)  
+    url = window.location.href; 
+  name = name.replace(/[\[\]]/g, "\\$&");
+  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"), results = regex.exec(url); 
+  if (!results) 
+    return null; 
+  if (!results[2]) 
+    return ''; 
+  return decodeURIComponent(results[2].replace(/\+/g, " ")); 
+}
