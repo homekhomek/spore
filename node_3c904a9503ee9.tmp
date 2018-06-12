@@ -111,6 +111,7 @@ io.on('connection', function(socket) {
   });
 
   socket.on('Profile', function(data) {
+    console.log(data);
     LoginDB.findOne({key:data.key}).then(function(profile) {
       if(profile == null) {
         socket.emit("Profile", {

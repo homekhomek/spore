@@ -1,4 +1,4 @@
-var socket = io.connect("141.126.155.58:7777"); // take your ip out for saftey when pushing
+var socket = io.connect("192.168.1.4:7777"); // take your ip out for saftey when pushing
 
 var a=document.getElementsByTagName("a");
 linkFix();
