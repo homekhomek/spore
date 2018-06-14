@@ -130,27 +130,3 @@ function toggleMenu(){
   }
   menuopen = !menuopen;
 }
-
-function profCirc(){
-  setTimeout(function(){
-    document.getElementById("ptsholder").style.display = "block";
-    $('.count').each(function () {
-      $(this).prop('Counter',0).animate({
-          Counter: $(this).text()
-      }, {
-          duration: 300,
-          easing: 'swing',
-          step: function (now) {
-              $(this).text(Math.ceil(now));
-          }
-      });
-  });
-    setTimeout(function(){
-      document.getElementById("prec").style.setProperty("-webkit-transform", "translate(-200px, 0)");
-      document.getElementById("prec").style.border = "5px solid #834B2D";
-      document.getElementById("ptsholder").style.setProperty("-webkit-transform", "translate(200px, 0)");
-      document.getElementById("activeBorder").style.backgroundColor = "white";
-      document.getElementById("activeBorder").style.backgroundImage = "none";
-    },5);
-  },300);
-}
