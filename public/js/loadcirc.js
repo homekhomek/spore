@@ -4,7 +4,7 @@ var activeBorder = $("#activeBorder");
 
 function loopit(dir){
     if (dir == "c")
-        i = i + 3;
+        i = i + 8;
     else
         i--;
     if (i < 0)
@@ -21,7 +21,6 @@ function loopit(dir){
       if (i < degs){
         loopit("c");
       }
-      
     },1);
     
 }

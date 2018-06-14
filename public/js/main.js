@@ -1,4 +1,5 @@
 var socket = io.connect("192.168.1.4:7777"); // take your ip out for saftey when pushing
+var pointss;
 
 var a=document.getElementsByTagName("a");
 linkFix();
@@ -106,6 +107,7 @@ function grabProf(){
 
 socket.on("Profile", function(inf) {
   document.getElementById("userPlace").innerHTML = inf.profile.username;
+  pointss = inf.profile.points;
 });
 
 function getParameterByName(name, url) { 
