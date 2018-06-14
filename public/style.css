@@ -35,6 +35,7 @@ body {
 line-height: 1;
 background: white;
 font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+color: #834B2D;
 }
 ol, ul {
 	list-style: none;
@@ -389,7 +390,7 @@ input::-webkit-input-placeholder {
 #prof {
   display: block;
   width: 100%;
-  margin-top: 225px;
+  margin-top: 175px;
 }
 
 #prof img {
@@ -403,18 +404,16 @@ input::-webkit-input-placeholder {
   opacity: 1;
 }
 
-#prof p {
+#userPlace {
   width: 100%;
-  text-align: center;
-  color: #834B2D;
   font-size: 60px;
-  padding: 50px 0;
+  text-align: center;
 }
 
 .container{
   width: 330px;
   height: 330px;
-  margin: 100px auto;
+  margin: 30px auto;
 }
 
 .circle{
@@ -458,4 +457,31 @@ input::-webkit-input-placeholder {
   display: none;
   z-index: 4;
   transition: all .25s ease;
+}
+
+#bio {
+  width: 75%;
+  display: block;
+  margin: 50px auto;
+  position: relative;
+  font-size: 40px;
+  color: #834B2D;
+}
+
+#givept {
+  background-color: #4B1B1E;
+  color: white;
+  border: none;
+  box-shadow: none;
+  font-size: 65px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 30px 160px;
+  margin: 100px auto;
+  position: relative;
+  display: block;
+}
+
+#givept i {
+  padding-bottom: 20px;
 }

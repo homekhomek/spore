@@ -34,9 +34,9 @@ function loopit(dir){
               }
           });
       });
-      document.getElementById("prec").style.setProperty("-webkit-transform", "translate(-200px, 0)");
+      document.getElementById("prec").style.setProperty("-webkit-transform", "translate(-75%, 0)");
       document.getElementById("prec").style.border = "5px solid #834B2D";
-      document.getElementById("ptsholder").style.setProperty("-webkit-transform", "translate(200px, 0)");
+      document.getElementById("ptsholder").style.setProperty("-webkit-transform", "translate(75%, 0)");
       document.getElementById("activeBorder").style.backgroundColor = "white";
       document.getElementById("activeBorder").style.backgroundImage = "none";
       }

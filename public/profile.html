@@ -11,19 +11,27 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
   </head>
-  <body id="logBod" onload="document.getElementById('logBod').style.opacity = '1'; grabProf(); loopit('c'); profCirc();">
+  <body id="logBod" onload="document.getElementById('logBod').style.opacity = '1'; grabProf(); loopit('c');">
     <header id="landhead">Spore</header>
     <main>
       <section id="prof">
-          <div class="container">
-            <div id="activeBorder" class="active-border">
-              <div id="circle" class="circle">
-                <img id="prec" class="prec 360" src="images/dfuser.png" alt="Profile Picture">
-                <div id="ptsholder" class="count">13</div>
-              </div>
+        <p id="userPlace"></p>
+        <div class="container">
+          <div id="activeBorder" class="active-border">
+            <div id="circle" class="circle">
+              <img id="prec" class="prec 360" src="images/dfuser.png" alt="Profile Picture">
+              <div id="ptsholder" class="count">0</div>
             </div>
           </div>
-        <p id="userPlace"></p>
+        </div>
+          
+          <p id="namePlace"></p>
+        <p id="bio"></p>
+        <hr>
+        <button id="givept" onClick="givePoint()">
+          <i class="fas fa-plus"></i>
+          <p>Give Point</p>
+        </button>
       </section>
     </main>
     <div class="blobs">  

@@ -1,4 +1,4 @@
-var socket = io.connect("192.168.1.4:7777"); // take your ip out for saftey when pushing
+var socket = io.connect("192.168.1.8:7777"); // take your ip out for saftey when pushing
 var pointss;
 
 var a=document.getElementsByTagName("a");
@@ -107,7 +107,8 @@ function grabProf(){
 
 socket.on("Profile", function(inf) {
   document.getElementById("userPlace").innerHTML = inf.profile.username;
-  pointss = inf.profile.points;
+  document.getElementById("ptsholder").innerHTML = inf.profile.points;
+  document.getElementById("bio").innerHTML = inf.profile.bio;
 });
 
 function getParameterByName(name, url) { 
