@@ -11,37 +11,26 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
   </head>
-  <body id="logBod" onload="document.getElementById('logBod').style.opacity = '1'; grabProf(); loopit('c');">
+  <body id="logBod" onload="document.getElementById('logBod').style.opacity = '1'; grabProf();">
     <header id="landhead">Spore</header>
-    <a href="editprof.html" id="editProf"></a>
     <main>
-      <section id="prof">
-        <p id="userPlace"></p>
-        <div class="container">
-          <div id="activeBorder" class="active-border">
-            <div id="circle" class="circle">
-              <img id="prec" class="prec 360" src="images/dfuser.png" alt="Profile Picture">
-              <div id="ptsholder" class="count">0</div>
-            </div>
-          </div>
-        </div>
-          <p id="namePlace"></p>
-        <p id="bio"></p>
-        <hr>
-        <button id="givept" onClick="givePoint()">
-          <i class="fas fa-plus"></i>
-          <p>Give Point</p>
-        </button>
-        <br><br><br><br><br><br>
-        <br><br><br><br><br><br>
-      </section>
+      <iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe> 
+      <form action="http://192.168.1.8:7777/avatar" target="dummyframe" method="post" enctype="multipart/form-data" id="profpic">
+        <img src="images/dfuser.png" id="edprf" alt="Profile Picture">
+        <label for="picupload" class="custom-file-upload">
+            <i class="fas fa-cloud-upload-alt"></i> Upload My Face
+        </label>
+        <input type="file" id="picupload" name="" accept="image/*">
+        <input type="submit" id="sendProf" value="Update My Face" onclick="startLoad()">
+      </form>
+      <div id="fakeloadlmao"><div id="loadfiller"></div></div>
     </main>
     <div class="blobs">  
       <div class="blob" id="lowerright" onclick="logout()"><i class="fas fa-sign-out-alt"></i></div>  
       <div class="blob" id="middleright" onclick="window.location='profile.html'"><i class="fas fa-user-alt"></i></div>  
       <div class="blob" id="uppermiddle"><i class="fas fa-chart-line"></i></div>  
       <div class="blob" id="middleleft"><i class="fas fa-search"></i></div>  
-      <div class="blob" id="lowerleft" onclick="window.history.back();"><i class="fas fa-arrow-left"></i></div>  
+      <div class="blob" id="lowerleft" onclick="window.history.back();"><i class="fas fa-arrow-left"></i></i></div>  
       <div class="blob" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
     </div>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
@@ -49,6 +38,5 @@
     <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
     <script src="js/main.js"></script>
     <script src="js/animhandler.js"></script>
-    <script src="js/loadcirc.js"></script>
   </body>
 </html>

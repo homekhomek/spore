@@ -290,6 +290,7 @@ input::-webkit-input-placeholder {
   width: 100%;
   text-align: center;
   font-size: 40px;
+  color: black;
 }
 
 #signuponlog p a{
@@ -489,6 +490,75 @@ input::-webkit-input-placeholder {
   font-size: 40px;
   padding: 45px;
   text-transform: uppercase;
-  color: #4B1B1E;
+  color: #834B2D;
   z-index: 1000;
+}
+
+#profpic {
+  margin-top: 150px;
+  width: 100%;
+  display: block;
+  position: relative;
+}
+
+#profpic p {
+  font-size: 40px;
+  width: 100%;
+  text-align: center;
+}
+
+#profpic input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  padding: 25px 40px;
+  font-size: 40px;
+  cursor: pointer;
+  display: block;
+  width: 60%;
+  position: relative;
+  margin: 30px auto;
+  text-align: center;
+  background-color: #834B2D;
+  color: white;
+}
+
+#sendProf {
+  width: 50%;
+  background-color: grey;
+  border: none;
+  border-radius: 0px;
+  -webkit-appearance: none;
+  -webkit-border-radius:0px;
+  color: white;
+  transition: all .5s ease;
+}
+
+#fakeloadlmao {
+  width: 80%;
+  height: 40px;
+  display: block;
+  position: relative;
+  margin: 20px auto;
+  border: 1px solid gray;
+  transition: all .5s ease;
+  opacity: 0;
+  text-align: center;
+  font-size: 40px;
+}
+
+#loadfiller{
+  height: 40px;
+  width: 0;
+  transition: all .5s ease;
+  background-color: #834B2D;
+}
+
+#edprf{
+  display: block;
+  width: 333px;
+  height: 333px;
+  margin: 20px auto;
+  border-radius: 100%;
 }

@@ -104,13 +104,19 @@ function grabProf(){
 //username, admin, points, hasPoints, lastPointTime, email
 
 socket.on("Profile", function(inf) {
-  document.getElementById("userPlace").innerHTML = inf.profile.username;
-  document.getElementById("ptsholder").innerHTML = inf.profile.points;
-  document.getElementById("bio").innerHTML = inf.profile.bio;
-  if(getParameterByName("username") == undefined || getParameterByName("username") == null) {
-    document.getElementById("editProf").innerHTML = "edit";
-    document.getElementById("givept").style.backgroundColor = "#a0a0a0";
-    document.getElementById("givept").setAttribute("onClick", "alert('You cant give a point to yourself you buffoon!')");
+  if(document.getElementById("prof") != null && document.getElementById("prof") != undefined){
+    document.getElementById("userPlace").innerHTML = inf.profile.username;
+    document.getElementById("ptsholder").innerHTML = inf.profile.points;
+    document.getElementById("bio").innerHTML = inf.profile.bio;
+    document.getElementById("prec").setAttribute("src", "http://192.168.1.8:7777/avatars/" + inf.profile.username + ".png");
+    if(getParameterByName("username") == undefined || getParameterByName("username") == null) {
+      document.getElementById("editProf").innerHTML = "edit";
+      document.getElementById("givept").style.backgroundColor = "#a0a0a0";
+      document.getElementById("givept").setAttribute("onClick", "alert('You cant give a point to yourself you buffoon!')");
+    }
+  }  
+  if(document.getElementById("profpic") != null && document.getElementById("profpic") != undefined){
+    document.getElementById("picupload").setAttribute("name", localStorage.getItem("key"));
   }
 });
 
@@ -124,4 +130,44 @@ function getParameterByName(name, url) {
   if (!results[2]) 
     return ''; 
   return decodeURIComponent(results[2].replace(/\+/g, " ")); 
+}
+
+$("#picupload").change(function(){
+  document.getElementById("sendProf").style.backgroundColor = "#4B1B1E";
+});
+
+
+
+function startLoad() {
+  document.getElementById("fakeloadlmao").style.opacity = "1";
+  document.getElementById("sendProf").style.display = "none";
+  document.getElementById("fakeloadlmao").innerHTML = "<div id='loadfiller'></div>";
+  document.getElementById("loadfiller").style.opacity = "1";
+  document.getElementById("loadfiller").style.width = "0";
+  setTimeout(function(){
+    document.getElementById("loadfiller").style.width = "20%";
+  },1200);
+  setTimeout(function(){
+    document.getElementById("loadfiller").style.width = "65%";
+  },2500);
+  setTimeout(function(){
+    document.getElementById("loadfiller").style.width = "100%";
+  },4000);
+  setTimeout(function(){
+    document.getElementById("fakeloadlmao").style.opacity = "0";
+  },4600);
+  setTimeout(function(){
+    document.getElementById("loadfiller").style.display = "none";
+    document.getElementById("fakeloadlmao").style.opacity = "1";
+    document.getElementById("fakeloadlmao").style.border = "none";
+    document.getElementById("fakeloadlmao").innerHTML = "Profile Picture Updated!";
+  },4600);
+  setTimeout(function(){
+    document.getElementById("fakeloadlmao").style.opacity = "0";
+    
+  },6000);
+  setTimeout(function(){
+    document.getElementById("sendProf").style.display = "block";
+    document.getElementById("sendProf").style.backgroundColor = "grey";
+  }, 6500);
 }
