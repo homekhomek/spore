@@ -4,9 +4,14 @@ var debug = true;
 var port = debug ? 7777 : 27016;
 
 var express = require('express');
+var bodyParser = require('body-parser');
+var multer = require('multer');
+var Jimp = require("jimp");
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
+var fs = require('fs');
+
 var dbready = false;
 
 var LoginDB = null;
@@ -17,7 +22,76 @@ server.listen(port, function() {
   console.log('Server listening at port %d', port);
 });
 // Routing
-app.use(express.static(__dirname + '/public'));
+app.use('/', express.static(__dirname + '/public')); 
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); 
+
+  
+  //Then give the file a unique name
+  var multerConfig = {
+    
+    storage: multer.diskStorage({
+    //Setup where the user's file will go
+    destination: function(req, file, next){
+      next(null, './public/avatars');
+    },   
+    
+    //Then give the file a unique name
+    filename: function(req, file, next){
+        console.log(req.body);
+        LoginDB.findOne({key:file.fieldname}).then(function(profile) {
+          if(profile != null) {
+            const ext = file.mimetype.split('/')[1];
+            next(null, profile.username + '.'+ext);
+          }
+        });
+      }
+    }),   
+    
+    //A means of ensuring only images are uploaded. 
+    fileFilter: function(req, file, next){
+      if(!file){
+        next();
+      }
+      const image = file.mimetype.startsWith('image/');
+      if(image){
+        
+        next(null, true);
+      }else{
+        console.log("file not supported");
+        //TODO:  A better message response to user on failure.
+        return next();
+      }
+    }
+  };
+  
+  
+ 
+app.post('/avatar',multer(multerConfig).any(),function(req,res){
+  Jimp.read('./public/avatars/' + req.files[0].filename, function (err, image) {
+    if (err) throw err;
+
+
+    var w = image.bitmap.width; 
+    var h = image.bitmap.height;
+
+    console.log(w + " " + h);
+
+    image.cover(333,333 )
+    .write('./public/avatars/' + req.files[0].filename.split(".")[0] + ".png"); 
+
+    fs.unlinkSync('./public/avatars/' + req.files[0].filename);
+  });
+  res.send("image uploaded");
+ console.log("image uploaded");
+});
 
 var MongoClient = require('mongodb').MongoClient;
 
@@ -60,6 +134,20 @@ io.on('connection', function(socket) {
           key: keyGen(),
           email: data.email,
         };
+
+        Jimp.read('./public/images/dfuser.png', function (err, image) {
+          if (err) throw err;
+          console.log(image);
+
+          var w = image.bitmap.width; 
+          var h = image.bitmap.height;
+
+          console.log(w + " " + h);
+      
+          image.crop((w/2)-333, (h/2)-333, 333,333)           
+          .write('./public/avatars/' + profile.username + ".png"); 
+      
+        });
         LoginDB.insertOne(profile).then(function(item) { // push account
           socket.emit("Register", {status: "success", type:"", key:profile.key}); // emit success
           console.log("Register Success");
