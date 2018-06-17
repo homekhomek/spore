@@ -90,10 +90,8 @@ function linkFix() {
 }
 
 function logout(){
-  //if(menuopen){
-    localStorage.removeItem("key");
-    window.location = "login.html";
-  //}
+  localStorage.removeItem("key");
+  window.location = "login.html";
 }
 
 function grabProf(){
@@ -109,6 +107,11 @@ socket.on("Profile", function(inf) {
   document.getElementById("userPlace").innerHTML = inf.profile.username;
   document.getElementById("ptsholder").innerHTML = inf.profile.points;
   document.getElementById("bio").innerHTML = inf.profile.bio;
+  if(getParameterByName("username") == undefined || getParameterByName("username") == null) {
+    document.getElementById("editProf").innerHTML = "edit";
+    document.getElementById("givept").style.backgroundColor = "#a0a0a0";
+    document.getElementById("givept").setAttribute("onClick", "alert('You cant give a point to yourself you buffoon!')");
+  }
 });
 
 function getParameterByName(name, url) { 

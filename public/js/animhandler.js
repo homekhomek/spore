@@ -18,7 +18,7 @@ function startLoadAnim() {
   setTimeout(function(){
     document.getElementById("entroverlay").style.display = "none";
     if(localStorage.getItem("key") != null && localStorage.getItem("key") != undefined){
-      window.location = "profile.html?username=";
+      window.location = "profile.html";
     }
     else {
       window.location = "login.html";

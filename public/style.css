@@ -56,6 +56,9 @@ a {
   text-decoration: none;
   cursor: pointer;
 }
+a:visited {
+  color: initial;
+}
 
 .stepoverlay {
   z-index: 999;
@@ -341,15 +344,6 @@ input::-webkit-input-placeholder {
   transition: all .35s ease;
 }
 
-.blobs {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: -1;
-}
-
 .blob {
   position: absolute;
   background: #834B2D;
@@ -357,7 +351,7 @@ input::-webkit-input-placeholder {
   top: 90vh;
   width: 100px;
   height: 100px;
-  z-index: 998;
+  z-index: 999;
   line-height: 100px;
   text-align: center;
   color: white;
@@ -368,6 +362,7 @@ input::-webkit-input-placeholder {
   transition: all .25s ease;
   -webkit-transform: scale(1.5);
             transform: scale(1.5);
+  position: fixed;
 }
 
 #landhead {
@@ -484,4 +479,16 @@ input::-webkit-input-placeholder {
 
 #givept i {
   padding-bottom: 20px;
+}
+
+#editProf {
+  float: right;
+  position: fixed;
+  top: 0;
+  right: 0;
+  font-size: 40px;
+  padding: 45px;
+  text-transform: uppercase;
+  color: #4B1B1E;
+  z-index: 1000;
 }
