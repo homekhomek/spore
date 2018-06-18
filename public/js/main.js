@@ -1,5 +1,6 @@
-var socket = io.connect("192.168.1.8:7777"); // take your ip out for saftey when pushing
+var socket = io.connect("141.126.155.58:7777"); // take your ip out for saftey when pushing
 var pointss;
+var myProfile = {};
 
 var a=document.getElementsByTagName("a");
 linkFix();
@@ -104,11 +105,12 @@ function grabProf(){
 //username, admin, points, hasPoints, lastPointTime, email
 
 socket.on("Profile", function(inf) {
+ 
   if(document.getElementById("prof") != null && document.getElementById("prof") != undefined){
     document.getElementById("userPlace").innerHTML = inf.profile.username;
     document.getElementById("ptsholder").innerHTML = inf.profile.points;
     document.getElementById("bio").innerHTML = inf.profile.bio;
-    document.getElementById("prec").setAttribute("src", "http://192.168.1.8:7777/avatars/" + inf.profile.username + ".png");
+    document.getElementById("prec").setAttribute("src", "http://141.126.155.58:7777/avatars/" + inf.profile.username + ".png");
     if(getParameterByName("username") == undefined || getParameterByName("username") == null) {
       document.getElementById("editProf").innerHTML = "edit";
       document.getElementById("givept").style.backgroundColor = "#a0a0a0";
@@ -117,6 +119,7 @@ socket.on("Profile", function(inf) {
   }  
   if(document.getElementById("profpic") != null && document.getElementById("profpic") != undefined){
     document.getElementById("picupload").setAttribute("name", localStorage.getItem("key"));
+    myProfile = inf.profile;
   }
 });
 
@@ -161,6 +164,7 @@ function startLoad() {
     document.getElementById("fakeloadlmao").style.opacity = "1";
     document.getElementById("fakeloadlmao").style.border = "none";
     document.getElementById("fakeloadlmao").innerHTML = "Profile Picture Updated!";
+    document.getElementById("edprf").src = "http://141.126.155.58:7777/avatars/" + myProfile.username + ".png";
   },4600);
   setTimeout(function(){
     document.getElementById("fakeloadlmao").style.opacity = "0";
@@ -169,5 +173,6 @@ function startLoad() {
   setTimeout(function(){
     document.getElementById("sendProf").style.display = "block";
     document.getElementById("sendProf").style.backgroundColor = "grey";
+
   }, 6500);
 }
