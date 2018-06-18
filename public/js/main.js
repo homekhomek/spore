@@ -5,6 +5,10 @@ var myProfile = {};
 var a=document.getElementsByTagName("a");
 linkFix();
 
+function getAvatarURL(username) {
+  return "http://141.126.155.58:7777/avatars/" +username + ".png?" + Date.now();
+}
+
 function sendReg(user, email, pass, pass2){
   if(pass == pass2){
     socket.emit("Register",{username: user, password: pass, email: email}); // once emited will return with a packets also named Register
@@ -110,7 +114,7 @@ socket.on("Profile", function(inf) {
     document.getElementById("userPlace").innerHTML = inf.profile.username;
     document.getElementById("ptsholder").innerHTML = inf.profile.points;
     document.getElementById("bio").innerHTML = inf.profile.bio;
-    document.getElementById("prec").setAttribute("src", "http://141.126.155.58:7777/avatars/" + inf.profile.username + ".png");
+    document.getElementById("prec").setAttribute("src", getAvatarURL(inf.profile.username));
     if(getParameterByName("username") == undefined || getParameterByName("username") == null) {
       document.getElementById("editProf").innerHTML = "edit";
       document.getElementById("givept").style.backgroundColor = "#a0a0a0";
@@ -164,7 +168,7 @@ function startLoad() {
     document.getElementById("fakeloadlmao").style.opacity = "1";
     document.getElementById("fakeloadlmao").style.border = "none";
     document.getElementById("fakeloadlmao").innerHTML = "Profile Picture Updated!";
-    document.getElementById("edprf").src = "http://141.126.155.58:7777/avatars/" + myProfile.username + ".png";
+    document.getElementById("edprf").src = getAvatarURL(myProfile.username);
   },4600);
   setTimeout(function(){
     document.getElementById("fakeloadlmao").style.opacity = "0";
