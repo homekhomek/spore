@@ -11,6 +11,7 @@ var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 var fs = require('fs');
+var formidable = require('express-formidable');
 
 var dbready = false;
 
@@ -35,20 +36,20 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
   
   //Then give the file a unique name
-  var multerConfig = {
+var multerConfig = {
     
-    storage: multer.diskStorage({
-    //Setup where the user's file will go
-    destination: function(req, file, next){
-      next(null, './public/avatars');
-    },   
+  storage: multer.diskStorage({
+  //Setup where the user's file will go
+  destination: function(req, file, next){
+    next(null, './public/avatars');
+  },   
     
-    //Then give the file a unique name
-    filename: function(req, file, next){
-        console.log(req.body);
-        LoginDB.findOne({key:file.fieldname}).then(function(profile) {
-          if(profile != null) {
-            const ext = file.mimetype.split('/')[1];
+  //Then give the file a unique name
+  filename: function(req, file, next){
+      console.log(req.body);
+      LoginDB.findOne({key:file.fieldname}).then(function(profile) {
+         if(profile != null) {
+         const ext = file.mimetype.split('/')[1];
             next(null, profile.username + '.'+ext);
           }
         });
@@ -72,7 +73,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
     }
   };
   
-  
+  function sendIt(res) {
+    res.send("image uploaded");
+  }
  
 app.post('/avatar',multer(multerConfig).any(),function(req,res){
   Jimp.read('./public/avatars/' + req.files[0].filename, function (err, image) {
@@ -85,11 +88,12 @@ app.post('/avatar',multer(multerConfig).any(),function(req,res){
     console.log(w + " " + h);
 
     image.cover(333,333 )
-    .write('./public/avatars/' + req.files[0].filename.split(".")[0] + ".png"); 
+    .write('./public/avatars/' + req.files[0].filename.split(".")[0] + ".png",sendIt(res)); 
 
     fs.unlinkSync('./public/avatars/' + req.files[0].filename);
+
   });
-  res.send("image uploaded");
+  
  console.log("image uploaded");
 });
 
