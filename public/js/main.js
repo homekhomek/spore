@@ -6,7 +6,7 @@ var a=document.getElementsByTagName("a");
 linkFix();
 
 function getAvatarURL(username) {
-  return "http://141.126.155.58:7777/avatars/" +username + ".png?" + Date.now();
+  return "http://141.126.155.58:7777/avatars/" + username + ".png?" + Date.now();
 }
 
 function sendReg(user, email, pass, pass2){
@@ -124,6 +124,7 @@ socket.on("Profile", function(inf) {
   if(document.getElementById("profpic") != null && document.getElementById("profpic") != undefined){
     document.getElementById("picupload").setAttribute("name", localStorage.getItem("key"));
     myProfile = inf.profile;
+    document.getElementById("edprf").setAttribute("src", getAvatarURL(inf.profile.username));
   }
 });
 
@@ -168,8 +169,8 @@ function startLoad() {
     document.getElementById("fakeloadlmao").style.opacity = "1";
     document.getElementById("fakeloadlmao").style.border = "none";
     document.getElementById("fakeloadlmao").innerHTML = "Profile Picture Updated!";
-    document.getElementById("edprf").src = getAvatarURL(myProfile.username);
-  },4600);
+    document.getElementById("edprf").setAttribute("src", getAvatarURL(myProfile.username));
+  },5100);
   setTimeout(function(){
     document.getElementById("fakeloadlmao").style.opacity = "0";
     
