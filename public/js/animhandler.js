@@ -67,65 +67,53 @@ function startAddAppAnim() {
 
 function toggleMenu(){
   if(menuopen){
-    document.getElementById("lowerleft").style.setProperty("-webkit-transform", "scale(.95) translate(-100px, 0)");
+    document.getElementById("top").style.setProperty("-webkit-transform", "scale(.95) translate(-2px, -85px)");
     setTimeout(function(){
-      document.getElementById("middleleft").style.setProperty("-webkit-transform", "scale(.95) translate(-75px, -75px)");
+      document.getElementById("upperright").style.setProperty("-webkit-transform", "scale(.95) translate(47px, -77px)");
     },50);
     setTimeout(function(){
-      document.getElementById("uppermiddle").style.setProperty("-webkit-transform", "scale(.95) translate(0, -100px)");
+      document.getElementById("lowerright").style.setProperty("-webkit-transform", "scale(.95) translate(87px, -46px)");
     },100);
     setTimeout(function(){
-      document.getElementById("middleright").style.setProperty("-webkit-transform", "scale(.95) translate(75px, -75px)");
+      document.getElementById("right").style.setProperty("-webkit-transform", "scale(.95) translate(100px, 2px)");
     },150);
-    setTimeout(function(){
-      document.getElementById("lowerright").style.setProperty("-webkit-transform", "scale(.95) translate(100px, 0)");
-    },200);
     // SECONDARY ANIMATION
     setTimeout(function(){
-      document.getElementById("lowerleft").style.setProperty("-webkit-transform", "scale(1.25) translate(0, 0)");
+      document.getElementById("top").style.setProperty("-webkit-transform", "scale(1.25) translate(0, 0)");
       setTimeout(function(){
-        document.getElementById("middleleft").style.setProperty("-webkit-transform", "scale(1.25) translate(0, 0)");
+        document.getElementById("upperright").style.setProperty("-webkit-transform", "scale(1.25) translate(0, 0)");
       },50);
       setTimeout(function(){
-        document.getElementById("uppermiddle").style.setProperty("-webkit-transform", "scale(1.25) translate(0, 0)");
+        document.getElementById("lowerright").style.setProperty("-webkit-transform", "scale(1.25) translate(0, 0)");
       },100);
       setTimeout(function(){
-        document.getElementById("middleright").style.setProperty("-webkit-transform", "scale(1.25) translate(0, 0)");
+        document.getElementById("right").style.setProperty("-webkit-transform", "scale(1.25) translate(0, 0)");
       },150);
-      setTimeout(function(){
-        document.getElementById("lowerright").style.setProperty("-webkit-transform", "scale(1.25) translate(0, 0)");
-      },200);
     }, 100);
   }
   else{
-    document.getElementById("lowerleft").style.setProperty("-webkit-transform", "scale(.95) translate(-100px, 0)");
+    document.getElementById("top").style.setProperty("-webkit-transform", "scale(.95) translate(-2px, -85px)");
     setTimeout(function(){
-      document.getElementById("middleleft").style.setProperty("-webkit-transform", "scale(.95) translate(-75px, -75px)");
+      document.getElementById("upperright").style.setProperty("-webkit-transform", "scale(.95) translate(47px, -77px)");
     },50);
     setTimeout(function(){
-      document.getElementById("uppermiddle").style.setProperty("-webkit-transform", "scale(.95) translate(0, -100px)");
+      document.getElementById("lowerright").style.setProperty("-webkit-transform", "scale(.95) translate(87px, -46px)");
     },100);
     setTimeout(function(){
-      document.getElementById("middleright").style.setProperty("-webkit-transform", "scale(.95) translate(75px, -75px)");
+      document.getElementById("right").style.setProperty("-webkit-transform", "scale(.95) translate(100px, 2px)");
     },150);
-    setTimeout(function(){
-      document.getElementById("lowerright").style.setProperty("-webkit-transform", "scale(.95) translate(100px, 0)");
-    },200);
     // SECONDARY ANIMATION
     setTimeout(function(){
-      document.getElementById("lowerleft").style.setProperty("-webkit-transform", "scale(1.25) translate(-200px, 0)");
+      document.getElementById("top").style.setProperty("-webkit-transform", "scale(1.25) translate(-5px, -170px)");
       setTimeout(function(){
-        document.getElementById("middleleft").style.setProperty("-webkit-transform", "scale(1.25) translate(-150px, -150px)");
+        document.getElementById("upperright").style.setProperty("-webkit-transform", "scale(1.25) translate(90px, -160px)");
       },50);
       setTimeout(function(){
-        document.getElementById("uppermiddle").style.setProperty("-webkit-transform", "scale(1.25) translate(0, -200px)");
+        document.getElementById("lowerright").style.setProperty("-webkit-transform", "scale(1.25) translate(154px, -90px)");
       },100);
       setTimeout(function(){
-        document.getElementById("middleright").style.setProperty("-webkit-transform", "scale(1.25) translate(150px, -150px)");
+        document.getElementById("right").style.setProperty("-webkit-transform", "scale(1.25) translate(170px, 5px)");
       },150);
-      setTimeout(function(){
-        document.getElementById("lowerright").style.setProperty("-webkit-transform", "scale(1.25) translate(200px, 0)");
-      },200);
     }, 100);
   }
   menuopen = !menuopen;

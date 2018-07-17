@@ -348,12 +348,12 @@ input::-webkit-input-placeholder {
 .blob {
   position: absolute;
   background: #834B2D;
-  left: 50%;
+  left: 20%;
   top: 90vh;
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   z-index: 999;
-  line-height: 100px;
+  line-height: 85px;
   text-align: center;
   color: white;
   font-size: 40px;
@@ -364,6 +364,10 @@ input::-webkit-input-placeholder {
   -webkit-transform: scale(1.5);
             transform: scale(1.5);
   position: fixed;
+}
+
+.blob i {
+  font-size: 35px;
 }
 
 #landhead {
@@ -446,7 +450,7 @@ input::-webkit-input-placeholder {
   border: 5px solid #834B2D;
   color: #834B2D;
   border-radius: 100%;
-  font-size: 150px;
+  font-size: 100px;
   text-align: center;
   line-height: 300px;
   font-weight: 100;
@@ -561,4 +565,25 @@ input::-webkit-input-placeholder {
   height: 333px;
   margin: 20px auto;
   border-radius: 100%;
+}
+
+#comparebtn {
+  background: #834B2D;
+  left: 80%;
+  top: 90vh;
+  width: 90px;
+  height: 90px;
+  z-index: 999;
+  line-height: 85px;
+  text-align: center;
+  color: white;
+  font-size: 40px;
+  border-radius: 100%;
+  margin-top: -50px;
+  margin-left: -50px;
+  transition: all .25s ease;
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+  position: fixed;
+
 }
