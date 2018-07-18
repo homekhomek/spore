@@ -567,8 +567,12 @@ input::-webkit-input-placeholder {
   border-radius: 100%;
 }
 
-#generalupload {
+#uploadtitle {
   margin-top: 175px;
+  margin-bottom: 30px;
+  font-size: 80px;
+  width: 100%;
+  text-align: center;
 }
 
 #selfieupload {
@@ -584,12 +588,29 @@ input::-webkit-input-placeholder {
   font-size: 35px;
 }
 
+.comingsoon {
+  display: block;
+  position: relative;
+  margin: 60px auto;
+  color: #ddd;
+  padding: 45px 0;
+  text-align: center;
+  width: calc(85% - 4px);
+  font: 50px Arial, Helvetica, sans-serif;
+  background-color: white;
+  border-style: dashed;
+  border-width: 2px;
+  border-color: #ddd;
+  border-radius: 10px;
+}
+
 .uploadbutton {
   display: block;
   position: relative;
   margin: 60px auto;
   color: white;
   padding: 45px 0;
+  height: 60px;
   text-align: center;
   width: 85%;
   font: 50px Arial, Helvetica, sans-serif;
