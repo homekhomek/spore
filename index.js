@@ -97,6 +97,26 @@ app.post('/avatar',multer(multerConfig).any(),function(req,res){
  console.log("image uploaded");
 });
 
+app.post('/upload/selfies',multer(multerConfig).any(),function(req,res){
+  Jimp.read('./public/avatars/' + req.files[0].filename, function (err, image) {
+    if (err) throw err;
+
+
+    var w = image.bitmap.width; 
+    var h = image.bitmap.height;
+
+    console.log(w + " " + h);
+
+    image.cover(333,333 )
+    .write('./public/avatars/' + req.files[0].filename.split(".")[0] + ".png",sendIt(res)); 
+
+    fs.unlinkSync('./public/avatars/' + req.files[0].filename);
+
+  });
+  
+ console.log("image uploaded");
+});
+
 var MongoClient = require('mongodb').MongoClient;
 
 // Connection URL 
@@ -130,13 +150,15 @@ io.on('connection', function(socket) {
           username: data.username,
           password: data.password,
           admin: 0,
-          points: 0,
           bio: "I like shrooms",
           title: data.username,
           hasPoint: true,
           lastPointTime: "",
           key: keyGen(),
           email: data.email,
+          scores: {
+            overall: 1000,
+          }
         };
 
         Jimp.read('./public/images/dfuser.png', function (err, image) {

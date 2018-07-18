@@ -562,3 +562,24 @@ input::-webkit-input-placeholder {
   margin: 20px auto;
   border-radius: 100%;
 }
+
+#generalupload {
+  margin-top: 175px;
+}
+
+#selfieupload {
+  background-color:#1925aa;
+}
+
+.uploadbutton {
+  display: block;
+  position: relative;
+  margin: 60px auto;
+  color: white;
+  padding: 45px 0;
+  text-align: center;
+  width: 100%;
+  font: 50px Arial, Helvetica, sans-serif;
+  background-color: #834b2d;
+  border-radius: 10px;
+}

@@ -14,17 +14,19 @@
   <body id="logBod" onload="document.getElementById('logBod').style.opacity = '1'; grabProf();">
     <header id="landhead">Spore</header>
     <main>
-      <iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe> 
-      <form action="http://141.126.155.58:7777/avatar" target="dummyframe" method="post" enctype="multipart/form-data" id="profpic">
-        <img src="images/dfuser.png" id="edprf" alt="Profile Picture">
-        <label for="picupload" class="custom-file-upload">
-            <i class="fas fa-cloud-upload-alt"></i> Pick My Face
-        </label>
-        <input type="file" id="picupload" name="" accept="image/*">
-        <input type="submit" id="sendProf" value="Update My Face" onclick="startLoad()">
-      </form>
-      <div id="fakeloadlmao"><div id="loadfiller"></div></div>
+      <div class="uploadbutton" id="generalupload">General</div>
+      <div class="uploadbutton" id="selfieupload">Selfie</div>
+      <div class="uploadbutton" id="memeupload">Meme</div>
+      
     </main>
+    <div class="blobs">  
+      <div class="blob" id="lowerright" onclick="logout()"><i class="fas fa-sign-out-alt"></i></div>  
+      <div class="blob" id="middleright" onclick="window.location='profile.html'"><i class="fas fa-user-alt"></i></div>  
+      <div class="blob" id="uppermiddle"><i class="fas fa-chart-line"></i></div>  
+      <div class="blob" id="middleleft"><i class="fas fa-search"></i></div>  
+      <div class="blob" id="lowerleft" onclick="window.history.back();"><i class="fas fa-arrow-left"></i></i></div>  
+      <div class="blob" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    </div>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <scirpt src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
