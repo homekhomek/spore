@@ -3,7 +3,7 @@
   <head>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
     <link rel="apple-touch-icon" href="http://funatuns.com/funatuns/apple-touch-icon.png">
     <meta charset="UTF-8">
     <title>Spore</title>
@@ -15,18 +15,19 @@
     <header id="landhead">Spore</header>
     <main>
       <div class="uploadbutton" id="generalupload">General</div>
-      <div class="uploadbutton" id="selfieupload">Selfie</div>
-      <div class="uploadbutton" id="memeupload">Meme</div>
+      <div class="uploadbutton" id="selfieupload"><i class="fas fa-smile-beam"></i> <i class="fas fa-tired"></i> <i class="fas fa-smile-wink"></i> Selfie <i class="fas fa-grin-hearts"></i> <i class="fas fa-meh"></i> <i class="fas fa-laugh-squint"></i></div>
+      <div class="uploadbutton" id="memeupload">meme</div>
+      
       
     </main>
     <div class="blobs">  
-      <div class="blob" id="lowerright" onclick="logout()"><i class="fas fa-sign-out-alt"></i></div>  
-      <div class="blob" id="middleright" onclick="window.location='profile.html'"><i class="fas fa-user-alt"></i></div>  
-      <div class="blob" id="uppermiddle"><i class="fas fa-chart-line"></i></div>  
-      <div class="blob" id="middleleft"><i class="fas fa-search"></i></div>  
-      <div class="blob" id="lowerleft" onclick="window.history.back();"><i class="fas fa-arrow-left"></i></i></div>  
+      <div class="blob" id="top" onclick="logout()"><i class="fas fa-sign-out-alt"></i></div>  
+      <div class="blob" id="upperright" onclick="window.location='profile.html'"><i class="fas fa-user-alt"></i></div>  
+      <div class="blob" id="lowerright"><i class="fas fa-chart-line"></i></div> 
+      <div class="blob" id="right" onclick="window.location='uploadmain.html'"><i class="fa fa-cloud-upload-alt"></i></div> 
       <div class="blob" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
     </div>
+    <div id="comparebtn"><i class="fa fa-balance-scale" aria-hidden="true"></i></div>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <scirpt src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
