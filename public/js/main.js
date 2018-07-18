@@ -1,7 +1,7 @@
 var socket = io.connect("141.126.155.58:7777"); // take your ip out for saftey when pushing
 var pointss;
 var myProfile = {};
-
+//pay ip: 141.126.155.58:7777
 var a=document.getElementsByTagName("a");
 linkFix();
 
@@ -112,13 +112,11 @@ socket.on("Profile", function(inf) {
  
   if(document.getElementById("prof") != null && document.getElementById("prof") != undefined){
     document.getElementById("userPlace").innerHTML = inf.profile.username;
-    document.getElementById("ptsholder").innerHTML = inf.profile.points;
+    document.getElementById("ptsholder").innerHTML = inf.profile.scores.overall;
     document.getElementById("bio").innerHTML = inf.profile.bio;
     document.getElementById("prec").setAttribute("src", getAvatarURL(inf.profile.username));
     if(getParameterByName("username") == undefined || getParameterByName("username") == null) {
       document.getElementById("editProf").innerHTML = "edit";
-      document.getElementById("givept").style.backgroundColor = "#a0a0a0";
-      document.getElementById("givept").setAttribute("onClick", "alert('You cant give a point to yourself you buffoon!')");
     }
   }  
   if(document.getElementById("profpic") != null && document.getElementById("profpic") != undefined){

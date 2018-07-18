@@ -28,22 +28,16 @@
           <p id="namePlace"></p>
         <p id="bio"></p>
         <hr>
-        <button id="givept" onClick="givePoint()">
-          <i class="fas fa-plus"></i>
-          <p>Give Point</p>
-        </button>
-        <br><br><br><br><br><br>
-        <br><br><br><br><br><br>
       </section>
     </main>
     <div class="blobs">  
-      <div class="blob" id="lowerright" onclick="logout()"><i class="fas fa-sign-out-alt"></i></div>  
-      <div class="blob" id="middleright" onclick="window.location='profile.html'"><i class="fas fa-user-alt"></i></div>  
-      <div class="blob" id="uppermiddle"><i class="fas fa-chart-line"></i></div>  
-      <div class="blob" id="middleleft"><i class="fas fa-search"></i></div>  
-      <div class="blob" id="lowerleft" onclick="window.history.back();"><i class="fas fa-arrow-left"></i></div>  
+      <div class="blob" id="top" onclick="logout()"><i class="fas fa-sign-out-alt"></i></div>  
+      <div class="blob" id="upperright" onclick="window.location='profile.html'"><i class="fas fa-user-alt"></i></div>  
+      <div class="blob" id="lowerright"><i class="fas fa-chart-line"></i></div> 
+      <div class="blob" id="right"><i class="fa fa-cloud-upload-alt" aria-hidden="true"></i></div> 
       <div class="blob" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
     </div>
+    <div id="comparebtn"><i class="fa fa-balance-scale" aria-hidden="true"></i></div>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <scirpt src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
