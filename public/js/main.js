@@ -142,6 +142,13 @@ $("#picupload").change(function(){
   document.getElementById("sendProf").style.backgroundColor = "#4B1B1E";
 });
 
+$("#uploadboxupload").change(function(){
+  document.getElementById("uploadboxlabel").style.display = "none";
+  document.getElementById("uploadboxsubmit").style.display = "block";
+  document.getElementById("uploadboxcancel").style.display = "block";
+});
+
+
 
 
 function startLoad() {

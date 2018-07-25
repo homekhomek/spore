@@ -274,6 +274,20 @@ io.on('connection', function(socket) {
   });
 });
 
+
+
+function isAdmin(key) {
+  LoginDB.findOne({key: key}).then(function(item) {
+    
+    if (item.admin > 0) {
+      return true;
+    } else {
+      return false;
+    }
+
+  });
+}
+
 function profileExists(username) {
   LoginDB.findOne({username: username}).then(function(item) {
     if (item == null) {
@@ -294,6 +308,19 @@ function getProfileByKey(str) {
 }
 
 
+function dayExists(day) {
+  EventDB.findOne({day: day}).then(function(item) {
+    if (item == null) {
+      console.log("Day does not exist");
+      return false;
+    } else {
+      console.log("Day does exist");
+      return true;
+    }
+  });
+}
+
+
 function keyGen() {
   var key = "";
   for (var i = 0; i < 3; i++) {
@@ -309,7 +336,32 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function getCarrierByIndex(bop) {
+  return carriers[bop];
+}
+
 function hasWhiteSpace(str) {
   return str.indexOf(' ') >= 0;
+}
+
+
+function getTopTen() {
+  var object = LoginDB.getData("/users");
+  var board = []
+  for (var property in object) {
+    if (object.hasOwnProperty(property)) {
+      board.push({
+        name: object[property].username,
+        score: object[property].hours,
+        number: object[property].number,
+        carrier: object[property].carrier
+      });
+    }
+  }
+  board.sort(function(a, b) {
+    return b.score - a.score;
+  });
+
+  return board;
 }
 
