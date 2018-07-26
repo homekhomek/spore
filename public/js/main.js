@@ -124,6 +124,10 @@ socket.on("Profile", function(inf) {
     myProfile = inf.profile;
     document.getElementById("edprf").setAttribute("src", getAvatarURL(inf.profile.username));
   }
+  if(document.getElementById("uploadbox") != null  ){
+    document.getElementById("uploadboxupload").setAttribute("name", localStorage.getItem("key"));
+    myProfile = inf.profile;
+  }
 });
 
 function getParameterByName(name, url) { 
@@ -146,6 +150,12 @@ $("#uploadboxupload").change(function(){
   document.getElementById("uploadboxlabel").style.display = "none";
   document.getElementById("uploadboxsubmit").style.display = "block";
   document.getElementById("uploadboxcancel").style.display = "block";
+});
+
+$("#uploadboxcancel").click(function(){
+  document.getElementById("uploadboxlabel").style.display = "block";
+  document.getElementById("uploadboxsubmit").style.display = "none";
+  document.getElementById("uploadboxcancel").style.display = "none";
 });
 
 
