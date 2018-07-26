@@ -7,18 +7,17 @@
     <link rel="apple-touch-icon" href="http://funatuns.com/funatuns/apple-touch-icon.png">
     <meta charset="UTF-8">
     <title>Spore</title>
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,600" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
   </head>
-  <body id="logBod" onload="document.getElementById('logBod').style.opacity = '1'; grabProf();">
+  <body id="logBod" onload="document.getElementById('logBod').style.opacity = '1'; grabProf(); whatCat();">
     <header id="landhead">Spore</header>
     <main>
-      <h1 id="uploadtitle"><i class="fa fa-balance-scale"></i> Pick 1 <i class="fa fa-balance-scale"></i></h1>
-      <hr>
-      <div id="compareLoading">I'm loading your pictures be patient</div>
-      <img id="compareOption1"> 
-      <img id="compareOption2"> 
+      <span id="catspan"></span>
+      <div id="overlay"></div>
+      <div onclick="pickPic(1)" class="compareDiv" id="compareOption1"><div id="expdiv1" class="expdiv" onclick="expPic(1)"><i class="fa fa-expand" aria-hidden="true"></i></div></div>
+      <div onclick="pickPic(2)" class="compareDiv" id="compareOption2"><div class="expdiv" onclick="expPic(2)"><i class="fa fa-expand" aria-hidden="true"></i></div></div>
     </main>
     <div class="blobs">  
       <div class="blob" id="top" onclick="logout()"><i class="fas fa-sign-out-alt"></i></div>  

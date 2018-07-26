@@ -1,4 +1,5 @@
-var socket = io.connect("141.126.155.58:7777"); // take your ip out for saftey when pushing
+var ip = "141.126.155.58:7777";
+var socket = io.connect(ip); // take your ip out for saftey when pushing
 var pointss;
 var myProfile = {};
 //pay ip: 141.126.155.58:7777
@@ -6,7 +7,7 @@ var a=document.getElementsByTagName("a");
 linkFix();
 
 function getAvatarURL(username) {
-  return "http://141.126.155.58:7777/avatars/" + username + ".png?" + Date.now();
+  return "http://" + ip + "/avatars/" + username + ".png?" + Date.now();
 }
 
 function sendReg(user, email, pass, pass2){
@@ -196,3 +197,7 @@ function startLoad() {
 
   }, 6500);
 }
+
+$("#comparebtn").click(function(event){
+  window.location = "comparemain.html";
+});

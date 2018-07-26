@@ -118,3 +118,17 @@ function toggleMenu(){
   }
   menuopen = !menuopen;
 }
+
+function expPic(pic) {
+  document.getElementById("overlay").style.display = "block";
+  if(pic == 1){
+    document.getElementById("compareOption1").style.marginTop = "50%";
+    document.getElementById("compareOption1").style.zIndex = "1004";
+    document.getElementById("compareOption1").style.position = "absolute";
+  }
+  else if(pic == 2) {
+    document.getElementById("compareOption2").style.marginTop = "50%";
+    document.getElementById("compareOption2").style.zIndex = "1004";
+    document.getElementById("compareOption2").style.position = "absolute";
+  }
+}
