@@ -148,6 +148,7 @@ function getParameterByName(name, url) {
 
 $("#picupload").change(function(){
   document.getElementById("sendProf").style.backgroundColor = "#4B1B1E";
+  document.getElementById("sendProf").style.display = "block";
 });
 
 $("#uploadboxupload").change(function(){
@@ -174,42 +175,6 @@ $("#uploadboxcancel").click(function(){
 
 
 
-
-function startLoad() {
-  document.getElementById("fakeloadlmao").style.opacity = "1";
-  document.getElementById("sendProf").style.display = "none";
-  document.getElementById("fakeloadlmao").innerHTML = "<div id='loadfiller'></div>";
-  document.getElementById("loadfiller").style.opacity = "1";
-  document.getElementById("loadfiller").style.width = "0";
-  setTimeout(function(){
-    document.getElementById("loadfiller").style.width = "20%";
-  },1200);
-  setTimeout(function(){
-    document.getElementById("loadfiller").style.width = "65%";
-  },2500);
-  setTimeout(function(){
-    document.getElementById("loadfiller").style.width = "100%";
-  },4000);
-  setTimeout(function(){
-    document.getElementById("fakeloadlmao").style.opacity = "0";
-  },4600);
-  setTimeout(function(){
-    document.getElementById("loadfiller").style.display = "none";
-    document.getElementById("fakeloadlmao").style.opacity = "1";
-    document.getElementById("fakeloadlmao").style.border = "none";
-    document.getElementById("fakeloadlmao").innerHTML = "Profile Picture Updated!";
-    document.getElementById("edprf").setAttribute("src", getAvatarURL(myProfile.username));
-  },5100);
-  setTimeout(function(){
-    document.getElementById("fakeloadlmao").style.opacity = "0";
-    
-  },6000);
-  setTimeout(function(){
-    document.getElementById("sendProf").style.display = "block";
-    document.getElementById("sendProf").style.backgroundColor = "grey";
-
-  }, 6500);
-}
 
 $("#comparebtn").click(function(event){
   window.location = "comparemain.html";

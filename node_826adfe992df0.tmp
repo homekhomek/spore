@@ -305,8 +305,8 @@ io.on('connection', function(socket) {
                     LoginDB.findOne({key: image2.ownerKey}).then(function(person2) {
                       if(person2 != null){
                         if(pick == 1) {
-                          var WinnerR = Math.pow(10, person1.scores[image1.type].score / 400);
-                          var LoserR = Math.pow(10, person2.scores[image2.type].score / 400);
+                          var WinnerR = Math.pow(10, person1.scores[image1.type].score / 1000);
+                          var LoserR = Math.pow(10, person2.scores[image2.type].score / 1000);
                           var WinnerE = WinnerR / (LoserR + WinnerR);
                           var LoserE = LoserR / (LoserR + WinnerR);
                           person1.scores[image1.type].score += Math.floor(100 * (1 - WinnerE));

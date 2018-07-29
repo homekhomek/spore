@@ -39,6 +39,7 @@
   -webkit-border-radius:0px;
   color: white;
   transition: all .5s ease;
+  display: none;
 }
 
 #fakeloadlmao {
