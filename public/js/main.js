@@ -50,6 +50,9 @@ socket.on("Register",function (data) {
     else if(data.type == "hasWhiteSpace"){
       alert("Whitespaces in the username are not permitted.");
     }
+    else if(data.type == "noHyphens"){
+      alert("No hyphens please lmao.");
+    }
     else if(data.type == "tooLong"){
       alert("The username is too long!");
     }
@@ -148,9 +151,19 @@ $("#picupload").change(function(){
 });
 
 $("#uploadboxupload").change(function(){
-  document.getElementById("uploadboxlabel").style.display = "none";
-  document.getElementById("uploadboxsubmit").style.display = "block";
-  document.getElementById("uploadboxcancel").style.display = "block";
+  document.getElementById("uploadboxlabel").style.opacity = "0";
+  setTimeout(function(){
+    document.getElementById("uploadboxlabel").style.display = "none";
+    document.getElementById("uploadboxsubmit").style.display = "block";
+    document.getElementById("uploadboxcancel").style.display = "block";
+    
+    setTimeout(function(){
+      document.getElementById("uploadboxsubmit").style.opacity = "1";
+      document.getElementById("uploadboxcancel").style.opacity = "1";
+    }, 100);
+    
+  }, 1000);
+  
 });
 
 $("#uploadboxcancel").click(function(){
@@ -200,4 +213,8 @@ function startLoad() {
 
 $("#comparebtn").click(function(event){
   window.location = "comparemain.html";
+});
+
+$("#lowerright").click(function(event){
+  window.location = "leaderboard.html";
 });

@@ -8,19 +8,20 @@
     <meta charset="UTF-8">
     <title>Spore</title>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,600" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="stylesheet" type="text/css" href="styles/generalupload.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
   </head>
-  <body id="logBod" onload="document.getElementById('logBod').style.opacity = '1'; grabProf();">
+  <body onload="generalAnim(); grabProf();">
     <header id="landhead">Spore</header>
     <main>
       <h1 id="gnrlTitle1">Welcome</h1>
       <h1 id="gnrlTitle2">To General</h1>
-      
+
       <p id="gnrlInfo1">The place for every kind of image.</p>
 
       <iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe> 
-      <form action="http://141.126.155.58:7777/upload/general" target="dummyframe" method="post" enctype="multipart/form-data" id="uploadbox">
+      <form action="http://141.126.155.58:7777/upload/general" method="post" enctype="multipart/form-data" id="uploadbox">
         <label for="uploadboxupload"  id="uploadboxlabel">Pick My Pic</label>
         <input type="file" name="" accept="image/*" id="uploadboxupload">
         <input type="submit" value="Full Send" id="uploadboxsubmit">

@@ -132,3 +132,18 @@ function expPic(pic) {
     document.getElementById("compareOption2").style.position = "absolute";
   }
 }
+
+function generalAnim() {
+  document.getElementById("gnrlTitle1").style.marginTop = "200px";
+  document.getElementById("gnrlTitle1").style.opacity = "1";
+  setTimeout(function(){
+    document.getElementById("gnrlTitle2").style.marginTop = "0px";
+    document.getElementById("gnrlTitle2").style.opacity = "1";
+    setTimeout(function(){
+      document.getElementById("gnrlInfo1").style.opacity = "1";
+      setTimeout(function(){
+        document.getElementById("uploadbox").style.opacity = "1";
+      }, 2000);
+    }, 2000);
+  }, 2000);
+}

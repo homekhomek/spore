@@ -1,0 +1,94 @@
+/* PROFILE STYLES */
+
+#prof {
+  display: block;
+  width: 100%;
+  margin-top: 175px;
+}
+
+#prof img {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  border-radius: 100%;
+  z-index: 5;
+  transition: all .25s ease;
+  opacity: 1;
+}
+
+#userPlace {
+  width: 100%;
+  font-size: 60px;
+  text-align: center;
+}
+
+.container{
+  width: 330px;
+  height: 330px;
+  margin: 30px auto;
+}
+
+.circle{
+  position: relative;
+  top: 5px;
+  left: 5px;
+  text-align: center;
+  width: 300px;
+  height: 300px;
+  border-radius: 100%;
+  background-color: #FFF;
+}
+
+.active-border{
+  position: relative;
+  text-align: center;
+  width: 310px;
+  height: 310px;
+  border-radius: 100%;
+
+  background-color:#834B2D;
+  background-image:
+      linear-gradient(91deg, transparent 50%, #FFF 50%),
+      linear-gradient(90deg, #FFF 50%, transparent 50%);
+}
+
+#ptsholder {
+  position: absolute;
+  margin: 0 auto;
+  width: 300px;
+  height: 300px;
+  margin-top: -305px;
+  margin-left: -5px;
+  border: 5px solid #834B2D;
+  color: #834B2D;
+  border-radius: 100%;
+  font-size: 100px;
+  text-align: center;
+  line-height: 300px;
+  font-weight: 100;
+  display: none;
+  z-index: 4;
+  transition: all .25s ease;
+}
+
+#bio {
+  width: 70%;
+  display: block;
+  margin: 50px auto;
+  position: relative;
+  font-size: 40px;
+  color: #834B2D;
+}
+
+#editProf {
+  float: right;
+  position: fixed;
+  top: 0;
+  right: 0;
+  font-size: 40px;
+  padding: 45px;
+  text-transform: uppercase;
+  color: #834B2D;
+  z-index: 1000;
+}

@@ -1,0 +1,67 @@
+/* LOGIN STYLES */
+
+#logintitl {
+  font-size: 150px;
+  color: #834B2D;
+  font-weight: 200;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
+  padding-top: 375px;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+#loginbod {
+  overflow: hidden;
+}
+
+#loginform {
+  display: block;
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+}
+
+#loginbtn {
+  display: block;
+  position: relative;
+  margin: 60px auto;
+  color: white;
+  padding: 30px 0;
+  text-align: center;
+  width: 100%;
+  font: 40px Arial, Helvetica, sans-serif;
+  background: -webkit-gradient(linear, left top, left bottom, from(#bea292), to(#834b2d)) fixed;
+  border-radius: 10px;
+}
+
+#frgtpsswrd {
+  font-size: 50px;
+  color: #834B2D;
+}
+
+#signuponlog {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  border-top: 1px solid #b7b7b7;
+}
+
+#signuponlog p {
+  padding: 50px 0;
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+  color: black;
+}
+
+#signuponlog p a{
+  color: #834B2D;
+}
+
+#logBod {
+  opacity: 0;
+  transition: all .35s ease;
+}
