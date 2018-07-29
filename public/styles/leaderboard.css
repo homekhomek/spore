@@ -1,0 +1,68 @@
+#board {
+  width: 100%;
+  display: block;
+  position: relative;
+}
+.boardpiece {
+  width: calc(100% - 40px);
+  display: block;
+  font-size: 46px;
+  padding: 20px;
+  border-bottom: 1px solid #b7b7b7;
+}
+.boardpiece * {
+  display: inline-block;
+  vertical-align: top;
+  padding: 15px;
+}
+.pieceimg {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+}
+.pieceplace {
+  display: inline-block;
+  font-size: 60px;
+  line-height: 145px;
+  font-weight: bolder;
+}
+.pieceusername {
+  line-height: 145px;
+}
+.piecescore {
+  line-height: 145px;
+  position: absolute;
+  right: 0;
+  padding: 15px 35px;
+  font-weight: bolder;
+}
+#leadertitle {
+  margin-top: 175px;
+  font-size:46px;
+  width: 100%;
+  text-transform: uppercase;
+  text-align: center;
+  display: block;
+  padding: 5px 0;
+  padding-bottom: 30px;
+}
+
+select {
+  border: none;
+  color: #834b2d;
+  font-size: 46px;
+  padding: 10px 20px;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  background-color: white;
+  -webkit-appearance: none;
+}
+select:active {
+  border: none;
+}
+
+select option {
+  font-size: 16px;
+  padding: 0;
+}

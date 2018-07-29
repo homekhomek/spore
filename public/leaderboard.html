@@ -9,13 +9,19 @@
     <title>Spore</title>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,600" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="stylesheet" type="text/css" href="styles/leaderboard.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
   </head>
   <body id="logBod" onload="document.getElementById('logBod').style.opacity = '1'; grabProf();">
     <header id="landhead">Spore</header>
     <main>
-      <h1 id="comparetitle">Leaderboard</h1>
-      <hr>
+      <h1 id="leadertitle">Leaderboard</h1>
+      <select id="catpick">
+        <option value="overall">Overall</option>
+        <option value="general">General</option>
+        <option value="selfie">Selfie</option>
+        <option value="meme">Meme</option>
+      </select>
       <div id="board"> </div>
     </main>
     <div class="blobs">  
