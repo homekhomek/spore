@@ -356,11 +356,6 @@ io.on('connection', function(socket) {
                           LoginDB.update({key:currentKey}, profile);
                 
                         });
-                        
-          
-
-
-                        
                       }
                     });
                   }
@@ -524,16 +519,81 @@ function getTwoImages(profile, type, send) {
 }
 
 function getBoard (type,withBoard) {
-  LoginDB.find().sort({'scores.overall': -1}).toArray(function(err,board) {
-    var actualBoard = [];
-    for(var i = 0; i < board.length; i++) {
-      actualBoard[i] = {
-        username: board[i].username,
-        score: board[i].scores.overall,
-        place: (i+1)
-      };
-    }
+  if(type == "overall") {
+    LoginDB.find().sort({'scores.overall': -1}).toArray(function(err,board) {
+      var actualBoard = [];
+      for(var i = 0; i < board.length; i++) {
+        actualBoard[i] = {
+          username: board[i].username,
+          score: board[i].scores.overall,
+          place: (i+1)
+        };
+      }
+  
+      withBoard(actualBoard);
+    });
+  }
+  else if (type == "general"){
+    LoginDB.find({ "scores.general" : { $exists: true } }).toArray(function(err,board) {
+      board.sort(function(a,b) {
+        return b.scores[type].score - a.scores[type].score;
+      }); 
+      var actualBoard = [];
+      for(var i = 0; i < board.length; i++) {
+        actualBoard[i] = {
+          username: board[i].username,
+          score: board[i].scores["general"].score,
+          place: (i+1)
+        };
+      }
 
-    withBoard(actualBoard);
-  });
+      actualBoard.sort(function(a,b) {
+        return b.score - a.score;
+      }); 
+  
+      withBoard(actualBoard);
+    });
+  }
+  else if (type == "selfie"){
+    LoginDB.find({ "scores.selfie" : { $exists: true } }).toArray(function(err,board) {
+      board.sort(function(a,b) {
+        return b.scores[type].score - a.scores[type].score;
+      }); 
+      var actualBoard = [];
+      for(var i = 0; i < board.length; i++) {
+        actualBoard[i] = {
+          username: board[i].username,
+          score: board[i].scores["selfie"].score,
+          place: (i+1)
+        };
+      }
+
+      actualBoard.sort(function(a,b) {
+        return b.score - a.score;
+      }); 
+  
+      withBoard(actualBoard);
+    });
+  }
+  else if (type == "meme"){
+    LoginDB.find({ "scores.meme" : { $exists: true } }).toArray(function(err,board) {
+      board.sort(function(a,b) {
+        return b.scores[type].score - a.scores[type].score;
+      }); 
+      var actualBoard = [];
+      for(var i = 0; i < board.length; i++) {
+        actualBoard[i] = {
+          username: board[i].username,
+          score: board[i].scores["meme"].score,
+          place: (i+1)
+        };
+      }
+
+      actualBoard.sort(function(a,b) {
+        return b.score - a.score;
+      }); 
+  
+      withBoard(actualBoard);
+    });
+  }
 }
