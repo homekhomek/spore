@@ -200,16 +200,20 @@ function generalAnim() {
 }
 
 function memeAnim() {
-  document.getElementById("memeTitle1").style.opacity = "1";
+  document.getElementById("memeBod").style.opacity = "1";
   setTimeout(function(){
-    document.getElementById("memeTitle2").style.opacity = "1";
+    document.getElementById("memeTitle1").style.opacity = "1";
     setTimeout(function(){
-      document.getElementById("memeInfo1").style.opacity = "1";
+      document.getElementById("memeTitle2").style.opacity = "1";
       setTimeout(function(){
-        document.getElementById("uploadbox").style.opacity = "1";
+        document.getElementById("memeInfo1").style.opacity = "1";
+        setTimeout(function(){
+          document.getElementById("uploadbox").style.opacity = "1";
+        }, 2000);
       }, 2000);
     }, 2000);
   }, 2000);
+  
 }
 
 

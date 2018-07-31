@@ -1,6 +1,8 @@
-body {
+#memeBod {
+    transition: all 2s ease;
+    opacity: 0;
     background-image: url("../images/memeBack2.png");
-    background-repeat: no-repeat, repeat;
+    background-repeat: no-repeat, no-repeat;
     background-size: cover;
     height: 100vh;
 }
@@ -11,7 +13,7 @@ body {
     text-align: center;
     font-size: 150px;
 
-    margin-top: 400px;
+    padding-top: 400px;
     opacity: 0;
 
     transition: all 1.5s ease;
