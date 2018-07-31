@@ -516,3 +516,27 @@ input::-webkit-input-placeholder {
 #compareOption2pre { 
   background: url("") no-repeat -9999px -9999px; 
 }
+#catTiles {
+  width: 100%;
+  display: block;
+  white-space: nowrap;
+}
+.catTile {
+  width: calc(50% - 60px);
+  display: inline-block;
+  padding: 30px;
+  font-size: 40px;
+  color: white;
+}
+#generaltile {
+  background-color: #834B2D;
+}
+#selfietile {
+  background-color: #1925aa;
+}
+#memetile {
+  background-image: url("../images/memeBack.jpg");
+}
+.tileScore {
+  float: right;
+}

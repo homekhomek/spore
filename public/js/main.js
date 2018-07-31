@@ -2,6 +2,7 @@ var ip = "141.126.155.58:7777";
 var socket = io.connect(ip); // take your ip out for saftey when pushing
 var pointss;
 var myProfile = {};
+var categories = ["general", "selfie", "meme"];
 //pay ip: 141.126.155.58:7777
 var a=document.getElementsByTagName("a");
 linkFix();
@@ -121,14 +122,23 @@ socket.on("Profile", function(inf) {
     document.getElementById("prec").setAttribute("src", getAvatarURL(inf.profile.username));
     if(getParameterByName("username") == undefined || getParameterByName("username") == null) {
       document.getElementById("editProf").innerHTML = "edit";
+      myProfile = inf.profile;
+      var finalCat = [];
+      for(i = 0; categories.length > i; i++) {
+        if(myProfile.scores[categories[i]]) {
+          myProfile.scores[categories[i]].type = categories[i];
+          finalCat.push(myProfile.scores[categories[i]]);
+        }
+      }
+      makeTiles(finalCat);
     }
   }  
-  if(document.getElementById("profpic") != null && document.getElementById("profpic") != undefined){
+  else if(document.getElementById("profpic") != null && document.getElementById("profpic") != undefined){
     document.getElementById("picupload").setAttribute("name", localStorage.getItem("key"));
     myProfile = inf.profile;
     document.getElementById("edprf").setAttribute("src", getAvatarURL(inf.profile.username));
   }
-  if(document.getElementById("uploadbox") != null  ){
+  else if(document.getElementById("uploadbox") != null  ){
     document.getElementById("uploadboxupload").setAttribute("name", localStorage.getItem("key"));
     myProfile = inf.profile;
   }
@@ -183,3 +193,13 @@ $("#comparebtn").click(function(event){
 $("#lowerright").click(function(event){
   window.location = "leaderboard.html";
 });
+
+function makeTiles(finalCategories){
+  document.getElementById("catTiles").innerHTML = "";
+  for(i = 0; finalCategories.length> i; i++){
+    document.getElementById("catTiles").innerHTML += "<div id='" + finalCategories[i].type + "tile' class='catTile'>" + finalCategories[i].type.charAt(0).toUpperCase() + finalCategories[i].type.slice(1) + "<p class='tileScore'>" + finalCategories[i].score + "</p></div>";
+    if((i+1)%2 == 0) {
+      document.getElementById("catTiles").innerHTML += "<br>";
+    }
+  }
+}
