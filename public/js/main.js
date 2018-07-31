@@ -130,6 +130,7 @@ socket.on("Profile", function(inf) {
       makeTiles(finalCat);
     if(getParameterByName("username") == undefined || getParameterByName("username") == null) {
       document.getElementById("editProf").innerHTML = "edit";
+      localStorage.setItem("username", inf.profile.username);
     }
   }  
   else if(document.getElementById("profpic") != null && document.getElementById("profpic") != undefined){
@@ -211,3 +212,7 @@ function updateBio(){
     document.getElementById("newBio").setAttribute("placeholder", "Enter your new bio here...");
   }, 3000);
 }
+
+$("#edtbackarrow").onclick(function(){
+  window.location = "profile.html?user=" + localstorage.getItem('username');
+});
