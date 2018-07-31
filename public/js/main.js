@@ -120,17 +120,16 @@ socket.on("Profile", function(inf) {
     document.getElementById("ptsholder").innerHTML = inf.profile.scores.overall;
     document.getElementById("bio").innerHTML = inf.profile.bio;
     document.getElementById("prec").setAttribute("src", getAvatarURL(inf.profile.username));
-    if(getParameterByName("username") == undefined || getParameterByName("username") == null) {
-      document.getElementById("editProf").innerHTML = "edit";
-      myProfile = inf.profile;
-      var finalCat = [];
+    var finalCat = [];
       for(i = 0; categories.length > i; i++) {
-        if(myProfile.scores[categories[i]]) {
-          myProfile.scores[categories[i]].type = categories[i];
-          finalCat.push(myProfile.scores[categories[i]]);
+        if(inf.profile.scores[categories[i]]) {
+          inf.profile.scores[categories[i]].type = categories[i];
+          finalCat.push(inf.profile.scores[categories[i]]);
         }
       }
       makeTiles(finalCat);
+    if(getParameterByName("username") == undefined || getParameterByName("username") == null) {
+      document.getElementById("editProf").innerHTML = "edit";
     }
   }  
   else if(document.getElementById("profpic") != null && document.getElementById("profpic") != undefined){
@@ -202,4 +201,13 @@ function makeTiles(finalCategories){
       document.getElementById("catTiles").innerHTML += "<br>";
     }
   }
+}
+
+function updateBio(){
+  socket.emit("UpdateBio", localStorage.getItem("key"), document.getElementById("newBio").value);
+  document.getElementById("newBio").setAttribute("placeholder", "Bio updated!");
+  document.getElementById("newBio").value = "";
+  setTimeout(function(){
+    document.getElementById("newBio").setAttribute("placeholder", "Enter your new bio here...");
+  }, 3000);
 }
