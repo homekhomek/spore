@@ -30,6 +30,19 @@
   color: white;
 }
 
+#upBioBtn {
+  padding: 25px 40px;
+  font-size: 40px;
+  cursor: pointer;
+  display: block;
+  width: 60%;
+  position: relative;
+  margin: 10px auto;
+  text-align: center;
+  background-color: #834B2D;
+  color: white;
+}
+
 #sendProf {
   width: 50%;
   background-color: grey;
@@ -68,4 +81,16 @@
   height: 333px;
   margin: 20px auto;
   border-radius: 100%;
+}
+
+textarea {
+  width: 80%;
+  font-size: 36px;
+  display: block;
+  position: relative;
+  margin: 20px auto;
+  border: none;
+  margin-bottom: 10px;
+  height: 20vh;
+  padding: 10px;
 }
