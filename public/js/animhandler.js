@@ -1,4 +1,6 @@
-var menuopen = false;
+var menuopen = false,
+    expanded = false,
+    expedPic = null;
 
 function startLoadAnim() {
   
@@ -120,17 +122,66 @@ function toggleMenu(){
 }
 
 function expPic(pic) {
-  document.getElementById("overlay").style.display = "block";
-  if(pic == 1){
-    document.getElementById("compareOption1").style.marginTop = "50%";
-    document.getElementById("compareOption1").style.zIndex = "1004";
-    document.getElementById("compareOption1").style.position = "absolute";
+  if(!expanded){
+    expedPic = pic;
+    document.getElementById("overlay").style.display = "block";
+    if(pic == 1){
+      document.getElementById("compareOption1").style.marginTop = "50%";
+      document.getElementById("catspan").style.marginTop = "136px";
+      document.getElementById("compareOption1").style.zIndex = "1004";
+      document.getElementById("compareOption1").style.position = "absolute";
+      document.getElementById("compareOption2").style.top = "calc(50vh + 70px)";
+      document.getElementById("compareOption2").style.position = "absolute";
+      document.getElementById("expdiv1").style.zIndex = "1006";
+    }
+    else if(pic == 2) {
+      document.getElementById("compareOption2").style.marginTop = "-50%";
+      document.getElementById("compareOption2").style.zIndex = "1004";
+      document.getElementById("compareOption2").style.position = "absolute";
+      document.getElementById("expdiv2").style.zIndex = "1006";
+    }
   }
-  else if(pic == 2) {
-    document.getElementById("compareOption2").style.marginTop = "50%";
-    document.getElementById("compareOption2").style.zIndex = "1004";
-    document.getElementById("compareOption2").style.position = "absolute";
+  else if(pic == 3){
+    document.getElementById("overlay").style.display = "none";
+    if(expedPic == 1){
+      document.getElementById("compareOption1").style.marginTop = "136px";
+      document.getElementById("compareOption1").style.position = "relative";
+      document.getElementById("catspan").style.marginTop = "30px";
+      setTimeout(function(){
+        document.getElementById("compareOption2").style.position = "relative";
+        document.getElementById("compareOption1").style.zIndex = "0";
+        document.getElementById("compareOption2").style.top = "";
+        document.getElementById("expdiv1").style.zIndex = "5";
+      },500);
+    }
+    else if(expedPic == 2) {
+      document.getElementById("compareOption2").style.marginTop = "0";
+      document.getElementById("compareOption2").style.zIndex = "0";
+      document.getElementById("compareOption2").style.position = "relative";
+      document.getElementById("expdiv2").style.zIndex = "5";
+    }
   }
+  else {
+    document.getElementById("overlay").style.display = "none";
+    if(pic == 1){
+      document.getElementById("compareOption1").style.marginTop = "136px";
+      document.getElementById("compareOption1").style.position = "relative";
+      document.getElementById("catspan").style.marginTop = "30px";
+      setTimeout(function(){
+        document.getElementById("compareOption2").style.position = "relative";
+        document.getElementById("compareOption1").style.zIndex = "0";
+        document.getElementById("compareOption2").style.top = "";
+        document.getElementById("expdiv1").style.zIndex = "5";
+      },500);
+    }
+    else if(pic == 2) {
+      document.getElementById("compareOption2").style.marginTop = "0";
+      document.getElementById("compareOption2").style.zIndex = "0";
+      document.getElementById("compareOption2").style.position = "relative";
+      document.getElementById("expdiv2").style.zIndex = "5";
+    }
+  }
+  expanded = !expanded;
 }
 
 function generalAnim() {
@@ -183,4 +234,10 @@ function startLoad() {
 
   }, 6500);
 }
+$("#expdiv1").click(function(e) { 
+  e.stopPropagation(); 
+});
+$("#expdiv2").click(function(e) { 
+  e.stopPropagation(); 
+})
 

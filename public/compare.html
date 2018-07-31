@@ -15,9 +15,9 @@
     <header id="landhead">Spore</header>
     <main>
       <span id="catspan"></span>
-      <div id="overlay"></div>
+      <div id="overlay" onclick="expPic(3)"></div>
       <div onclick="pickPic(1)" class="compareDiv" id="compareOption1"><div id="expdiv1" class="expdiv" onclick="expPic(1)"><i class="fa fa-expand" aria-hidden="true"></i></div></div>
-      <div onclick="pickPic(2)" class="compareDiv" id="compareOption2"><div class="expdiv" onclick="expPic(2)"><i class="fa fa-expand" aria-hidden="true"></i></div></div>
+      <div onclick="pickPic(2)" class="compareDiv" id="compareOption2"><div id="expdiv2" class="expdiv" onclick="expPic(2)"><i class="fa fa-expand" aria-hidden="true"></i></div></div>
     </main>
     <div class="blobs">  
       <div class="blob" id="top" onclick="logout()"><i class="fas fa-sign-out-alt"></i></div>  
@@ -27,6 +27,8 @@
       <div class="blob" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
     </div>
     <div id="comparebtn"><i class="fa fa-balance-scale" aria-hidden="true"></i></div>
+    <div id="compareOption1pre"></div>
+    <div id="compareOption2pre"></div>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <scirpt src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
