@@ -303,6 +303,16 @@ io.on('connection', function(socket) {
     });
   });
 
+  socket.on('UpdateBio', function(key,bio) {
+    if(bio.length <= 300) {
+      LoginDB.findOne({key: key}).then(function (profile) {
+        profile.bio = bio;
+
+        LoginDB.update({key: key},profile);
+      });
+    }
+  });
+
 
   socket.on('Login', function(data) {
     LoginDB.findOne({username:data.username}).then(function(profile) {
