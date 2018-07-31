@@ -1,0 +1,67 @@
+body {
+    background-image: url("../images/memeBack2.png");
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+#memeTitle1 {
+    color: white;
+    width: 100%;
+    text-align: center;
+    font-size: 150px;
+
+    margin-top: 400px;
+    opacity: 0;
+
+    transition: all 1.5s ease;
+}
+
+#memeTitle2 {
+    color: white;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+
+    margin-top: 0px;
+    opacity: 0;
+
+    transition: all 1.5s ease;
+}
+
+#memeInfo1 {
+    color: white;
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+    font-size: 80px;
+    opacity: 0;
+
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+    transition: all 1.5s ease;
+}
+
+#uploadbox {
+    border-color: white;
+    opacity: 0;
+    transition: all 1.5s ease;
+}
+
+
+#uploadboxlabel {
+    color: white;
+}
+  
+#uploadboxsubmit{
+    background-color: transparent;
+    color: white;
+    border: 5px solid white;
+}
+  
+#uploadboxcancel{
+background-color: transparent;
+color: white;
+border: 5px solid white;
+}

@@ -199,6 +199,19 @@ function generalAnim() {
   }, 2000);
 }
 
+function memeAnim() {
+  document.getElementById("memeTitle1").style.opacity = "1";
+  setTimeout(function(){
+    document.getElementById("memeTitle2").style.opacity = "1";
+    setTimeout(function(){
+      document.getElementById("memeInfo1").style.opacity = "1";
+      setTimeout(function(){
+        document.getElementById("uploadbox").style.opacity = "1";
+      }, 2000);
+    }, 2000);
+  }, 2000);
+}
+
 
 function startLoad() {
   document.getElementById("fakeloadlmao").style.opacity = "1";

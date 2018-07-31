@@ -9,17 +9,25 @@
     <title>Spore</title>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,600" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="stylesheet" type="text/css" href="styles/memeupload.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
   </head>
-  <body id="logBod" onload="document.getElementById('logBod').style.opacity = '1'; grabProf();">
+  <body onload="memeAnim(); grabProf();">
     <header id="landhead">Spore</header>
     <main>
-      <h1 id="uploadtitle">Upload Category</h1>
-      <hr>
-      <div class="uploadbutton" id="generalupload" onclick="window.location='generalupload.html'">General</div>
-      <div class="uploadbutton" id="selfieupload"><i class="fas fa-smile-beam"></i> <i class="fas fa-tired"></i> <i class="fas fa-smile-wink"></i> Selfie <i class="fas fa-grin-hearts"></i> <i class="fas fa-meh"></i> <i class="fas fa-grin-stars"></i></div>
-      <div class="uploadbutton" id="memeupload" onclick="window.location='memeupload.html'">meme</div>
-      <div class="comingsoon" >More coming soon...</div>
+      <h1 id="memeTitle1">memes</h1>
+      <h1 id="memeTitle2">woah</h1>
+
+      <p id="memeInfo1">I don't feel so good</p>
+
+      <iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe> 
+      <form action="http://141.126.155.58:7777/upload/meme" method="post" enctype="multipart/form-data" id="uploadbox">
+        <label for="uploadboxupload"  id="uploadboxlabel">Pick My Pic</label>
+        <input type="file" name="" accept="image/*" id="uploadboxupload">
+        <input type="submit" value="Full Send" id="uploadboxsubmit">
+        <div id="uploadboxcancel">Nah</div>
+      </form>
+      
     </main>
     <div class="blobs">  
       <div class="blob" id="top" onclick="logout()"><i class="fas fa-sign-out-alt"></i></div>  
