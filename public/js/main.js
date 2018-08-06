@@ -139,7 +139,7 @@ socket.on("Profile", function(inf) {
     document.getElementById("edprf").setAttribute("src", getAvatarURL(inf.profile.username));
   }
   else if(document.getElementById("uploadbox") != null  ){
-    document.getElementById("uploadboxupload").setAttribute("name", localStorage.getItem("key"));
+    document.getElementById("uploadboxupload").setAttribute("name",pageCategory + " " + localStorage.getItem("key"));
     myProfile = inf.profile;
   }
 });

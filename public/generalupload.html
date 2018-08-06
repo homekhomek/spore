@@ -21,9 +21,10 @@
       <p id="gnrlInfo1">The place for every kind of image.</p>
 
       <iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe> 
-      <form action="http://141.126.155.58:7777/upload/general" method="post" enctype="multipart/form-data" id="uploadbox">
+      <form action="http://141.126.155.58:7777/upload/photo" method="post" enctype="multipart/form-data" id="uploadbox">
         <label for="uploadboxupload"  id="uploadboxlabel">Pick My Pic</label>
         <input type="file" name="" accept="image/*" id="uploadboxupload">
+        <input type="text" name="type" value="general">
         <input type="submit" value="Full Send" id="uploadboxsubmit">
         <div id="uploadboxcancel">Nah</div>
       </form>
@@ -37,6 +38,9 @@
       <div class="blob" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
     </div>
     <div id="comparebtn"><i class="fa fa-balance-scale" aria-hidden="true"></i></div>
+    <script>
+      var pageCategory = "general";
+    </script>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <scirpt src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>

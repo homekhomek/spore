@@ -13,12 +13,6 @@ var io = require('socket.io')(server);
 var fs = require('fs');
 var formidable = require('express-formidable');
 
-var categories = [
-  "general",
-  "selfie",
-  "meme"
-];
-
 var dbready = false;
 
 var LoginDB = null;
@@ -75,24 +69,17 @@ var avatarConfig = {
   }
 };
 
-var photoConfig = {
+var generalConfig = {
   
   storage: multer.diskStorage({
   destination: function(req, file, next){
-    console.log(file);
-    var category = file.fieldname.split(" ")[0];
-    console.log(category);
-    if(categories.includes(category)) {
-      console.log("win in");
-      next(null, './public/imagestorage/' + category);
-    }
+    console.log("place is good");
+    next(null, './public/imagestorage/general');
   },   
 
   filename: function(req, file, next){
     console.log("name is good");
-    var category = file.fieldname.split(" ")[0];
-    var key = file.fieldname.split(" ")[1];
-      LoginDB.findOne({key:key}).then(function(profile) {
+      LoginDB.findOne({key:file.fieldname}).then(function(profile) {
         if(profile != null) {
         const ext = file.mimetype.split('/')[1];
           var name =profile.username + "-" + Date.now() + '.'+ext;
@@ -119,6 +106,42 @@ var photoConfig = {
   }
 };
 
+var memeConfig = {
+  
+  storage: multer.diskStorage({
+  destination: function(req, file, next){
+    console.log("place is good");
+    next(null, './public/imagestorage/meme');
+  },   
+
+  filename: function(req, file, next){
+    console.log("name is good");
+      LoginDB.findOne({key:file.fieldname}).then(function(profile) {
+        if(profile != null) {
+        const ext = file.mimetype.split('/')[1];
+          var name =profile.username + "-" + Date.now() + '.'+ext;
+            next(null,name);
+            //refineUploadImage(name,'./public/imagestorage/general/',profile );
+          }
+        });
+      }
+    }),   
+
+  fileFilter: function(req, file, next){
+    if(!file){
+      next();
+    }
+    const image = file.mimetype.startsWith('image/');
+    if(image){
+      
+      next(null, true);
+    }else{
+    console.log("file not supported");
+        //TODO:  A better message response to user on failure.
+      return next();
+    }
+  }
+};
 
 function refineUploadImage(imageName,imagePath) {
   LoginDB.findOne({username:imageName.split("-")[0]}).then(function(profile) {
@@ -189,9 +212,13 @@ app.post('/avatar',multer(avatarConfig).any(),function(req,res){
  console.log("image uploaded");
 });
 
-app.post('/upload/photo',multer(photoConfig).any(),function(req,res){
-  console.log(req.files);
-  refineUploadImage(req.files[0].filename,'./public/imagestorage/' + req.body.type + '/');
+app.post('/upload/general',multer(generalConfig).any(),function(req,res){
+  refineUploadImage(req.files[0].filename,'./public/imagestorage/general/');
+  res.redirect('../profile.html');
+});
+
+app.post('/upload/meme',multer(memeConfig).any(),function(req,res){
+  refineUploadImage(req.files[0].filename,'./public/imagestorage/meme/');
   res.redirect('../profile.html');
 });
 
@@ -575,10 +602,8 @@ function getBoard (type,withBoard) {
       withBoard(actualBoard);
     });
   }
-  else {
-    var thequery ={ };
-    thequery["scores." + type] = { $exists: true };
-    LoginDB.find(thequery).toArray(function(err,board) {
+  else if (type == "general"){
+    LoginDB.find({ "scores.general" : { $exists: true } }).toArray(function(err,board) {
       board.sort(function(a,b) {
         return b.scores[type].score - a.scores[type].score;
       }); 
@@ -586,7 +611,49 @@ function getBoard (type,withBoard) {
       for(var i = 0; i < board.length; i++) {
         actualBoard[i] = {
           username: board[i].username,
-          score: board[i].scores[type].score,
+          score: board[i].scores["general"].score,
+          place: (i+1)
+        };
+      }
+
+      actualBoard.sort(function(a,b) {
+        return b.score - a.score;
+      }); 
+  
+      withBoard(actualBoard);
+    });
+  }
+  else if (type == "selfie"){
+    LoginDB.find({ "scores.selfie" : { $exists: true } }).toArray(function(err,board) {
+      board.sort(function(a,b) {
+        return b.scores[type].score - a.scores[type].score;
+      }); 
+      var actualBoard = [];
+      for(var i = 0; i < board.length; i++) {
+        actualBoard[i] = {
+          username: board[i].username,
+          score: board[i].scores["selfie"].score,
+          place: (i+1)
+        };
+      }
+
+      actualBoard.sort(function(a,b) {
+        return b.score - a.score;
+      }); 
+  
+      withBoard(actualBoard);
+    });
+  }
+  else if (type == "meme"){
+    LoginDB.find({ "scores.meme" : { $exists: true } }).toArray(function(err,board) {
+      board.sort(function(a,b) {
+        return b.scores[type].score - a.scores[type].score;
+      }); 
+      var actualBoard = [];
+      for(var i = 0; i < board.length; i++) {
+        actualBoard[i] = {
+          username: board[i].username,
+          score: board[i].scores["meme"].score,
           place: (i+1)
         };
       }

@@ -75,7 +75,7 @@ var avatarConfig = {
   }
 };
 
-var photoConfig = {
+var generalConfig = {
   
   storage: multer.diskStorage({
   destination: function(req, file, next){
@@ -119,6 +119,42 @@ var photoConfig = {
   }
 };
 
+var memeConfig = {
+  
+  storage: multer.diskStorage({
+  destination: function(req, file, next){
+    console.log("place is good");
+    next(null, './public/imagestorage/meme');
+  },   
+
+  filename: function(req, file, next){
+    console.log("name is good");
+      LoginDB.findOne({key:file.fieldname}).then(function(profile) {
+        if(profile != null) {
+        const ext = file.mimetype.split('/')[1];
+          var name =profile.username + "-" + Date.now() + '.'+ext;
+            next(null,name);
+            //refineUploadImage(name,'./public/imagestorage/general/',profile );
+          }
+        });
+      }
+    }),   
+
+  fileFilter: function(req, file, next){
+    if(!file){
+      next();
+    }
+    const image = file.mimetype.startsWith('image/');
+    if(image){
+      
+      next(null, true);
+    }else{
+    console.log("file not supported");
+        //TODO:  A better message response to user on failure.
+      return next();
+    }
+  }
+};
 
 function refineUploadImage(imageName,imagePath) {
   LoginDB.findOne({username:imageName.split("-")[0]}).then(function(profile) {
@@ -189,9 +225,14 @@ app.post('/avatar',multer(avatarConfig).any(),function(req,res){
  console.log("image uploaded");
 });
 
-app.post('/upload/photo',multer(photoConfig).any(),function(req,res){
+app.post('/upload/general',multer(generalConfig).any(),function(req,res){
   console.log(req.files);
   refineUploadImage(req.files[0].filename,'./public/imagestorage/' + req.body.type + '/');
+  res.redirect('../profile.html');
+});
+
+app.post('/upload/meme',multer(memeConfig).any(),function(req,res){
+  refineUploadImage(req.files[0].filename,'./public/imagestorage/meme/');
   res.redirect('../profile.html');
 });
 
