@@ -1,0 +1,47 @@
+/* NAV STYLES */
+
+.blob {
+  position: absolute;
+  background: #834B2D;
+  left: 20%;
+  top: 90vh;
+  width: 90px;
+  height: 90px;
+  z-index: 999;
+  line-height: 85px;
+  text-align: center;
+  color: white;
+  font-size: 40px;
+  border-radius: 100%;
+  margin-top: -50px;
+  margin-left: -50px;
+  transition: all .25s ease;
+  -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  position: fixed;
+}
+
+.blob i {
+  font-size: 35px;
+}
+
+#compareBtn {
+  background: #834B2D;
+  left: 80%;
+  top: 90vh;
+  width: 90px;
+  height: 90px;
+  z-index: 999;
+  line-height: 85px;
+  text-align: center;
+  color: white;
+  font-size: 40px;
+  border-radius: 100%;
+  margin-top: -50px;
+  margin-left: -50px;
+  transition: all .25s ease;
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+  position: fixed;
+
+}

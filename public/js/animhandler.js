@@ -69,52 +69,52 @@ function startAddAppAnim() {
 
 function toggleMenu(){
   if(menuopen){
-    document.getElementById("top").style.setProperty("-webkit-transform", "scale(.95) translate(-2px, -85px)");
+    document.getElementById("navTop").style.setProperty("-webkit-transform", "scale(.95) translate(-2px, -85px)");
     setTimeout(function(){
-      document.getElementById("upperright").style.setProperty("-webkit-transform", "scale(.95) translate(47px, -77px)");
+      document.getElementById("navUpperright").style.setProperty("-webkit-transform", "scale(.95) translate(47px, -77px)");
     },50);
     setTimeout(function(){
-      document.getElementById("lowerright").style.setProperty("-webkit-transform", "scale(.95) translate(87px, -46px)");
+      document.getElementById("navLowerright").style.setProperty("-webkit-transform", "scale(.95) translate(87px, -46px)");
     },100);
     setTimeout(function(){
-      document.getElementById("right").style.setProperty("-webkit-transform", "scale(.95) translate(100px, 2px)");
+      document.getElementById("navRight").style.setProperty("-webkit-transform", "scale(.95) translate(100px, 2px)");
     },150);
     // SECONDARY ANIMATION
     setTimeout(function(){
-      document.getElementById("top").style.setProperty("-webkit-transform", "scale(1.25) translate(0, 0)");
+      document.getElementById("navTop").style.setProperty("-webkit-transform", "scale(1.25) translate(0, 0)");
       setTimeout(function(){
-        document.getElementById("upperright").style.setProperty("-webkit-transform", "scale(1.25) translate(0, 0)");
+        document.getElementById("navUpperright").style.setProperty("-webkit-transform", "scale(1.25) translate(0, 0)");
       },50);
       setTimeout(function(){
-        document.getElementById("lowerright").style.setProperty("-webkit-transform", "scale(1.25) translate(0, 0)");
+        document.getElementById("navLowerright").style.setProperty("-webkit-transform", "scale(1.25) translate(0, 0)");
       },100);
       setTimeout(function(){
-        document.getElementById("right").style.setProperty("-webkit-transform", "scale(1.25) translate(0, 0)");
+        document.getElementById("navRight").style.setProperty("-webkit-transform", "scale(1.25) translate(0, 0)");
       },150);
     }, 100);
   }
   else{
-    document.getElementById("top").style.setProperty("-webkit-transform", "scale(.95) translate(-2px, -85px)");
+    document.getElementById("navTop").style.setProperty("-webkit-transform", "scale(.95) translate(-2px, -85px)");
     setTimeout(function(){
-      document.getElementById("upperright").style.setProperty("-webkit-transform", "scale(.95) translate(47px, -77px)");
+      document.getElementById("navUpperright").style.setProperty("-webkit-transform", "scale(.95) translate(47px, -77px)");
     },50);
     setTimeout(function(){
-      document.getElementById("lowerright").style.setProperty("-webkit-transform", "scale(.95) translate(87px, -46px)");
+      document.getElementById("navLowerright").style.setProperty("-webkit-transform", "scale(.95) translate(87px, -46px)");
     },100);
     setTimeout(function(){
-      document.getElementById("right").style.setProperty("-webkit-transform", "scale(.95) translate(100px, 2px)");
+      document.getElementById("navRight").style.setProperty("-webkit-transform", "scale(.95) translate(100px, 2px)");
     },150);
     // SECONDARY ANIMATION
     setTimeout(function(){
-      document.getElementById("top").style.setProperty("-webkit-transform", "scale(1.25) translate(-5px, -170px)");
+      document.getElementById("navTop").style.setProperty("-webkit-transform", "scale(1.25) translate(-5px, -170px)");
       setTimeout(function(){
-        document.getElementById("upperright").style.setProperty("-webkit-transform", "scale(1.25) translate(90px, -160px)");
+        document.getElementById("navUpperright").style.setProperty("-webkit-transform", "scale(1.25) translate(90px, -160px)");
       },50);
       setTimeout(function(){
-        document.getElementById("lowerright").style.setProperty("-webkit-transform", "scale(1.25) translate(154px, -90px)");
+        document.getElementById("navLowerright").style.setProperty("-webkit-transform", "scale(1.25) translate(154px, -90px)");
       },100);
       setTimeout(function(){
-        document.getElementById("right").style.setProperty("-webkit-transform", "scale(1.25) translate(170px, 5px)");
+        document.getElementById("navRight").style.setProperty("-webkit-transform", "scale(1.25) translate(170px, 5px)");
       },150);
     }, 100);
   }
@@ -194,9 +194,9 @@ function generalAnim() {
       document.getElementById("gnrlInfo1").style.opacity = "1";
       setTimeout(function(){
         document.getElementById("uploadbox").style.opacity = "1";
-      }, 2000);
-    }, 2000);
-  }, 2000);
+      }, 1000);
+    }, 1000);
+  }, 1000);
 }
 
 function memeAnim() {
@@ -209,9 +209,9 @@ function memeAnim() {
         document.getElementById("memeInfo1").style.opacity = "1";
         setTimeout(function(){
           document.getElementById("uploadbox").style.opacity = "1";
-        }, 2000);
+        }, 1000);
       }, 2000);
-    }, 2000);
+    }, 1000);
   }, 2000);
   
 }

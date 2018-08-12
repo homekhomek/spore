@@ -183,13 +183,6 @@ $("#uploadboxcancel").click(function(){
   document.getElementById("uploadboxcancel").style.display = "none";
 });
 
-
-
-
-$("#comparebtn").click(function(event){
-  window.location = "comparemain.html";
-});
-
 $("#lowerright").click(function(event){
   window.location = "leaderboard.html";
 });

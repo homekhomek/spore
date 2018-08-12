@@ -9,6 +9,7 @@
     <title>Spore</title>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,600" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="stylesheet" type="text/css" href="styles/nav.css">
     <link rel="stylesheet" type="text/css" href="styles/generalupload.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
   </head>
@@ -21,29 +22,23 @@
       <p id="gnrlInfo1">The place for every kind of image.</p>
 
       <iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe> 
-      <form action="http://141.126.155.58:7777/upload/photo" method="post" enctype="multipart/form-data" id="uploadbox">
+      <form action="http://141.126.155.58:7777/upload/photo" method="post" enctype="multipart/form-data" id="uploadbox" target="dummyframe">
         <label for="uploadboxupload"  id="uploadboxlabel">Pick My Pic</label>
         <input type="file" name="" accept="image/*" id="uploadboxupload">
-        <input type="text" name="type" value="general">
+        <input type="hidden" name="type" value="general" >
         <input type="submit" value="Full Send" id="uploadboxsubmit">
         <div id="uploadboxcancel">Nah</div>
       </form>
       
     </main>
-    <div class="blobs">  
-      <div class="blob" id="top" onclick="logout()"><i class="fas fa-sign-out-alt"></i></div>  
-      <div class="blob" id="upperright" onclick="window.location='profile.html'"><i class="fas fa-user-alt"></i></div>  
-      <div class="blob" id="lowerright"><i class="fas fa-chart-line"></i></div> 
-      <div class="blob" id="right" onclick="window.location='uploadmain.html'"><i class="fa fa-cloud-upload-alt"></i></div> 
-      <div class="blob" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
-    </div>
-    <div id="comparebtn"><i class="fa fa-balance-scale" aria-hidden="true"></i></div>
+    <nav id="navHolder"></nav>
     <script>
       var pageCategory = "general";
     </script>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <scirpt src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script src="js/nav.js"></script>
     <script src="js/main.js"></script>
     <script src="js/animhandler.js"></script>
   </body>

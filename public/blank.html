@@ -3,27 +3,19 @@
   <head>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="apple-touch-icon" href="http://funatuns.com/funatuns/apple-touch-icon.png">
     <meta charset="UTF-8">
     <title>Spore</title>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,600" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles/style.css">
     <link rel="stylesheet" type="text/css" href="styles/nav.css">
-    <link rel="stylesheet" type="text/css" href="styles/leaderboard.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
   </head>
   <body id="logBod" onload="document.getElementById('logBod').style.opacity = '1'; grabProf();">
     <header id="landhead">Spore</header>
     <main>
-      <h1 id="leadertitle">Leaderboard</h1>
-      <select id="catpick">
-        <option value="overall">Overall</option>
-        <option value="general">General</option>
-        <option value="selfie">Selfie</option>
-        <option value="meme">Meme</option>
-      </select>
-      <div id="board"> </div>
+      
     </main>
     <nav id="navHolder"></nav>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
@@ -31,7 +23,6 @@
     <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/leaderboard.js"></script>
     <script src="js/animhandler.js"></script>
   </body>
 </html>

@@ -337,8 +337,8 @@ io.on('connection', function(socket) {
                           person1.scores[image1.type].score += Math.floor(100 * (1 - WinnerE));
                           person2.scores[image2.type].score  += Math.floor(100 * (0 - LoserE));
 
-                          WinnerR = Math.pow(10, person1.scores.overall / 1000);
-                          LoserR = Math.pow(10, person2.scores.overall / 1000);
+                          WinnerR = Math.pow(10, person1.scores.overall / 400);
+                          LoserR = Math.pow(10, person2.scores.overall / 400);
                           WinnerE = WinnerR / (LoserR + WinnerR);
                           LoserE = LoserR / (LoserR + WinnerR);
                           person1.scores.overall += Math.floor(100 * (1 - WinnerE));
@@ -348,15 +348,15 @@ io.on('connection', function(socket) {
                           LoginDB.update({key:image2.ownerKey}, person2);
                         }
                         else if(pick == 2) {
-                          var WinnerR = Math.pow(10, person2.scores[image1.type].score / 1000);
-                          var LoserR = Math.pow(10, person1.scores[image2.type].score / 1000);
+                          var WinnerR = Math.pow(10, person2.scores[image1.type].score / 400);
+                          var LoserR = Math.pow(10, person1.scores[image2.type].score / 400);
                           var WinnerE = WinnerR / (LoserR + WinnerR);
                           var LoserE = LoserR / (LoserR + WinnerR);
                           person2.scores[image1.type].score += Math.floor(100 * (1 - WinnerE));
                           person1.scores[image2.type].score  += Math.floor(100 * (0 - LoserE));
 
-                          WinnerR = Math.pow(10, person2.scores.overall / 1000);
-                          LoserR = Math.pow(10, person1.scores.overall / 1000);
+                          WinnerR = Math.pow(10, person2.scores.overall / 400);
+                          LoserR = Math.pow(10, person1.scores.overall / 400);
                           WinnerE = WinnerR / (LoserR + WinnerR);
                           LoserE = LoserR / (LoserR + WinnerR);
                           person2.scores.overall += Math.floor(100 * (1 - WinnerE));
